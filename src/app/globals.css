@@ -1,0 +1,160 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
+
+  --color-navy-950: #0c1220;
+  --color-navy-900: #111929;
+  --color-navy-800: #1c2740;
+  --color-navy-850: #152036;
+
+  --color-ember-400: #ff7a2e;
+  --color-ember-500: #ff5b00;
+  --color-ember-600: #c94800;
+
+  --color-cream-100: #f5f2ed;
+  --color-cream-200: #ece7df;
+  --color-cream-300: #ddd7cd;
+  --color-cream-400: #cfc8bc;
+
+  --color-mist-50: #c9cfd9;
+  --color-mist-100: #d5dae2;
+  --color-mist-200: #b4bac4;
+  --color-mist-300: #a8afba;
+  --color-mist-400: #8f98a8;
+
+  --color-ink: #111929;
+  --color-ink-soft: #5b6270;
+  --color-ink-muted: #4a515d;
+
+  --animate-marquee: marquee 70s linear infinite;
+  --animate-rise: rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  html[data-scroll-instant] {
+    scroll-behavior: auto;
+  }
+
+  body {
+    @apply bg-cream-100 font-sans text-navy-900 antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  em,
+  i {
+    font-style: normal;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-heading font-bold tracking-tight;
+  }
+
+  a {
+    @apply transition-colors;
+  }
+
+  ::selection {
+    @apply bg-ember-500 text-navy-900;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-ember-500;
+  }
+
+  [id] {
+    scroll-margin-top: 6rem;
+  }
+}
+
+/* Every paragraph is 18px (unlayered so utilities cannot override it). */
+p {
+  font-size: 18px;
+  text-wrap: pretty;
+}
+
+@utility container-page {
+  @apply mx-auto w-full max-w-[1280px] px-[clamp(20px,4vw,48px)];
+}
+
+@utility section-y {
+  @apply py-[clamp(72px,9vw,128px)];
+}
+
+@utility section-y-sm {
+  @apply py-[clamp(56px,7vw,96px)];
+}
+
+/* Clears the fixed, transparent header that sits on top of every hero. */
+@utility hero-pt {
+  padding-top: calc(84px + clamp(40px, 6vw, 80px));
+
+  @media (min-width: 1024px) {
+    padding-top: calc(124px + clamp(40px, 6vw, 80px));
+  }
+
+  @media (min-width: 1280px) {
+    padding-top: calc(152px + clamp(40px, 6vw, 80px));
+  }
+}
+
+@utility eyebrow {
+  @apply font-heading text-xs font-semibold tracking-[0.22em] text-ember-600 uppercase;
+}
+
+@utility eyebrow-light {
+  @apply font-heading text-xs font-semibold tracking-[0.22em] text-ember-500 uppercase;
+}
+
+@utility h-display {
+  @apply font-heading text-[clamp(32px,3.8vw,52px)] leading-[1.08] font-bold tracking-[-0.02em] text-balance;
+}
+
+@utility h-page {
+  @apply font-heading text-[clamp(38px,5vw,68px)] leading-[1.04] font-bold tracking-[-0.025em] text-balance;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
