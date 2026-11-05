@@ -65,12 +65,12 @@ export function Header() {
       <div
         className={cn(
           "hidden overflow-hidden border-b transition-[max-height,opacity,border-color] duration-300 lg:block",
-          scrolled ? "max-h-0 border-transparent opacity-0" : "max-h-10 border-white/10 opacity-100",
+          scrolled ? "max-h-0 border-transparent opacity-0" : "max-h-14 border-white/10 opacity-100",
         )}
         aria-hidden={scrolled}
       >
-        <div className="container-page flex h-10 items-center justify-between gap-6 text-[13px] text-mist-50">
-          <div className="flex items-center gap-7">
+        <div className="container-page flex h-14 items-center justify-between gap-6 text-[15px] text-mist-50">
+          <div className="flex items-center gap-8">
             <a
               href={site.mapHref}
               target="_blank"
@@ -82,21 +82,21 @@ export function Header() {
             </a>
             <span>{site.hours}</span>
           </div>
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-7">
             <a
               href={site.phoneHref}
               tabIndex={scrolled ? -1 : undefined}
-              className="inline-flex items-center gap-2 hover:text-ember-500"
+              className="inline-flex items-center gap-2.5 hover:text-ember-500"
             >
-              <Phone className="size-4" aria-hidden="true" />
+              <Phone className="size-5" aria-hidden="true" />
               <span>{site.phone}</span>
             </a>
             <a
               href={site.emailHref}
               tabIndex={scrolled ? -1 : undefined}
-              className="inline-flex items-center gap-2 hover:text-ember-500"
+              className="inline-flex items-center gap-2.5 hover:text-ember-500"
             >
-              <Mail className="size-4" aria-hidden="true" />
+              <Mail className="size-5" aria-hidden="true" />
               <span>{site.email}</span>
             </a>
           </div>

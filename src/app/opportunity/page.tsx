@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { GraduationCap, Handshake, LineChart, Wrench } from "lucide-react";
 import { CtaBanner } from "@/components/CtaBanner";
 import { Breadcrumb, PageHero, Watermark } from "@/components/PageHero";
 import { Accent, Button, Eyebrow, SectionHead } from "@/components/ui";
 import { agentGets, opportunityStats, pathways, steps, testimonials } from "@/lib/content";
+
+const agentGetIcons = [GraduationCap, Handshake, LineChart, Wrench] as const;
 
 export const metadata: Metadata = {
   title: "Agency Ownership Opportunity",
@@ -21,7 +24,7 @@ export default function OpportunityPage() {
         eyebrow="Agency Ownership Opportunity"
         title={
           <>
-            The Path to Ownership <Accent>Starts Here.</Accent>
+            The Path to Ownership <span className="font-bold text-ember-500">Starts Here.</span>
           </>
         }
         description="A clear path for people ready to own a Farmers Insurance agency, with real mentorship and systems that already work."
@@ -73,7 +76,7 @@ export default function OpportunityPage() {
             </div>
             <div className="absolute top-8 right-0 max-w-[220px] bg-navy-900 px-6 py-5 text-white shadow-[0_20px_40px_rgba(0,0,0,0.25)] sm:-right-3">
               <div className="mb-1.5 font-heading text-[34px] leading-none font-bold text-ember-500">Yours</div>
-              <div className="text-[13px] leading-normal text-mist-50">Your office, your team, your book of business.</div>
+              <div className="text-[15px] leading-normal text-mist-50">Your office, your team, your book of business.</div>
             </div>
           </div>
           <div className="min-w-0 flex-[1_1_420px]">
@@ -114,7 +117,7 @@ export default function OpportunityPage() {
             {pathways.map((path) => (
               <li
                 key={path.num}
-                className="flex flex-col border border-cream-300 bg-cream-100 transition-colors hover:bg-white lg:row-span-7 lg:grid lg:grid-rows-subgrid lg:gap-y-0"
+                className="flex flex-col border border-cream-300 bg-white transition-shadow hover:shadow-[0_20px_48px_rgba(17,25,41,0.16)] lg:row-span-7 lg:grid lg:grid-rows-subgrid lg:gap-y-0"
               >
                 <div className="relative aspect-video overflow-hidden bg-navy-900">
                   <Image
@@ -139,7 +142,7 @@ export default function OpportunityPage() {
                   </div>
                 ))}
                 <div className="p-8">
-                  <Button href="/contact" variant="dark" arrow className="w-full">
+                  <Button href="/contact" arrow className="w-full">
                     Apply for This Path
                   </Button>
                 </div>
@@ -201,10 +204,13 @@ export default function OpportunityPage() {
                 className="object-cover"
               />
               <div className="absolute inset-0 bg-[linear-gradient(0deg,rgba(17,25,41,0.96)_0%,rgba(17,25,41,0.6)_50%,rgba(17,25,41,0.1)_100%)]" />
+              <div className="absolute top-6 right-6 z-[1] font-heading text-[11px] font-bold tracking-[0.18em] text-white uppercase">
+                Step 1/5
+              </div>
               <div className="relative flex max-w-[560px] flex-col gap-3.5 p-[clamp(32px,4vw,52px)]">
                 <div className="flex items-center gap-3.5">
                   <span className="font-heading text-[72px] leading-[0.9] font-light text-ember-500">1</span>
-                  <span className="border border-ember-500/60 px-2.5 py-1.5 font-heading text-[11px] font-bold tracking-[0.18em] text-ember-500 uppercase">
+                  <span className="bg-ember-500 px-2.5 py-1.5 font-heading text-[11px] font-bold tracking-[0.18em] text-white uppercase [text-shadow:1px_1px_0_rgba(0,0,0,0.35)]">
                     Where It Starts
                   </span>
                 </div>
@@ -282,13 +288,18 @@ export default function OpportunityPage() {
               What Our Agents Get
             </div>
             <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {agentGets.map((item, index) => (
-                <li key={item} className="flex flex-col gap-5 border border-white/15 px-7 py-8 transition-colors hover:border-ember-500">
-                  <div className="h-[3px] w-8 bg-ember-500" />
-                  <div className="font-heading text-sm font-bold text-ember-500">{index + 1}</div>
-                  <div className="font-heading text-[17px] leading-[1.4] font-bold">{item}</div>
-                </li>
-              ))}
+              {agentGets.map((item, index) => {
+                const Icon = agentGetIcons[index] ?? GraduationCap;
+                return (
+                  <li
+                    key={item}
+                    className="flex flex-col gap-5 border border-white/15 px-7 py-8 transition-colors hover:border-ember-500"
+                  >
+                    <Icon className="size-12 text-ember-500" strokeWidth={1.5} aria-hidden="true" />
+                    <div className="font-heading text-[17px] leading-[1.4] font-bold">{item}</div>
+                  </li>
+                );
+              })}
             </ul>
           </div>
         </div>

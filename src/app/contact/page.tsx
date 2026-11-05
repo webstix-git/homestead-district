@@ -58,7 +58,7 @@ export default function ContactPage() {
             <p className="mb-8 max-w-[520px] leading-[1.7] text-ink-muted">
               Share a few details and we will follow up to talk through the path that fits you.
             </p>
-            <div className="border border-cream-400 bg-cream-100 shadow-[0_8px_24px_rgba(17,25,41,0.06)]">
+            <div className="border border-cream-400 bg-white shadow-[0_8px_24px_rgba(17,25,41,0.06)]">
               <ContactForm />
             </div>
           </div>
@@ -74,21 +74,23 @@ export default function ContactPage() {
                 {details.map(({ icon: Icon, label, href, text }) => {
                   const inner = (
                     <>
-                      <span className="grid size-10 shrink-0 place-items-center text-ember-500">
+                      <span className="grid size-10 shrink-0 place-items-center text-ember-500 transition-colors group-hover:text-ember-600">
                         <Icon className="size-5" aria-hidden="true" />
                       </span>
                       <span>
-                        <span className="block font-heading text-[11px] font-bold tracking-[0.18em] text-ink-soft uppercase">
+                        <span className="block font-heading text-[11px] font-bold tracking-[0.18em] text-ink-soft uppercase transition-colors group-hover:text-ember-600">
                           {label}
                         </span>
-                        <span className="mt-1 block text-[17px] leading-snug font-semibold text-navy-900">{text}</span>
+                        <span className="mt-1 block text-[17px] leading-snug font-semibold text-navy-900 transition-colors group-hover:text-ember-600">
+                          {text}
+                        </span>
                       </span>
                     </>
                   );
                   return (
                     <li key={label}>
                       {href ? (
-                        <a href={href} className="flex items-center gap-4 hover:text-ember-600">
+                        <a href={href} className="group flex items-center gap-4">
                           {inner}
                         </a>
                       ) : (

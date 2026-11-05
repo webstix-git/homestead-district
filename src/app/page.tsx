@@ -243,7 +243,7 @@ export default function HomePage() {
                 className="object-cover"
               />
             </div>
-            <div className="absolute right-0 bottom-0 z-[2] max-w-[260px] bg-ember-500 px-[30px] py-[26px] text-navy-900 shadow-[0_24px_48px_rgba(0,0,0,0.35)] sm:-right-6">
+            <div className="absolute right-0 bottom-0 z-[2] max-w-[260px] bg-[#ebac89] px-[30px] py-[26px] text-navy-900 shadow-[0_24px_48px_rgba(0,0,0,0.35)] sm:-right-6">
               <div className="mb-2 font-heading text-[44px] leading-none font-bold tracking-[-0.03em]">16</div>
               <div className="font-heading text-xs leading-normal font-bold tracking-[0.14em] uppercase">
                 Years Coaching Agency Owners in Southwest Missouri
@@ -288,7 +288,7 @@ export default function HomePage() {
           <h2 className="h-display mb-16 max-w-[760px]">How to Become a Farmers Agency Owner, in Five Steps.</h2>
           <PathSteps />
           <div className="mt-14 flex justify-center">
-            <Button href="/opportunity" variant="outline" arrow>
+            <Button href="/opportunity" variant="white" arrow>
               See the Full Opportunity
             </Button>
           </div>
@@ -299,7 +299,7 @@ export default function HomePage() {
       <section id="garach" className="section-y">
         <div className="container-page grid items-center gap-[clamp(40px,6vw,96px)] lg:grid-cols-2">
           <div className="relative">
-            <div className="pointer-events-none absolute top-6 -right-6 -bottom-6 left-6 border border-ember-500" />
+            <div className="pointer-events-none absolute top-6 -right-6 -bottom-6 left-6 border-[3px] border-ember-500" />
             <div className="relative aspect-[4/5] w-full">
               <Image
                 src="/images/garach-hero.jpg"
@@ -376,6 +376,7 @@ export default function HomePage() {
                   <div aria-hidden="true" className="h-6 font-heading text-[56px] leading-[0.6] font-bold text-ember-500">
                     &ldquo;
                   </div>
+                  <h3 className="text-[clamp(20px,1.8vw,24px)] leading-[1.3] font-bold text-white">{t.highlight}</h3>
                   <blockquote className="flex-1 text-[17px] leading-[1.7] text-mist-100">{t.short}</blockquote>
                   <figcaption className="flex items-center gap-4 border-t border-white/10 pt-6">
                     <div className="relative size-14 shrink-0 rounded-full border-2 border-ember-500 p-[3px]">

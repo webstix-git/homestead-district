@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { ArrowIcon, buttonClass } from "@/components/ui";
 
 const fieldClass =
-  "mt-2 block w-full rounded-[2px] border border-cream-400 bg-white px-4 py-3.5 text-base font-normal text-navy-900 outline-none transition-colors focus:border-ember-500";
+  "mt-2 block w-full rounded-[2px] border border-cream-300 bg-cream-200 px-4 py-3.5 text-base font-normal text-navy-900 outline-none transition-colors focus:border-ember-500 focus:bg-white";
 const labelClass = "block font-heading text-xs font-semibold tracking-[0.12em] uppercase";
 
 export function ContactForm() {
@@ -34,7 +34,7 @@ export function ContactForm() {
     <form
       onSubmit={onSubmit}
       noValidate
-      className="flex flex-col gap-5 border-t-[3px] border-ember-500 bg-transparent p-[clamp(24px,4vw,44px)] text-navy-900"
+      className="flex flex-col gap-5 border-t-[3px] border-ember-500 bg-white p-[clamp(24px,4vw,44px)] text-navy-900"
     >
       <p className="text-[15px] leading-[1.6] text-ink-soft">Fields marked with an asterisk (*) are required.</p>
       {error ? (
@@ -72,7 +72,7 @@ export function ContactForm() {
         <textarea name="message" rows={4} className={fieldClass} />
       </label>
       <button type="submit" className={buttonClass("primary", "lg", "w-full cursor-pointer")}>
-        <span className="leading-none">Submit Application</span>
+        <span className="leading-none">Send Application</span>
         <ArrowIcon />
       </button>
       <p className="leading-[1.6] text-ink-soft">

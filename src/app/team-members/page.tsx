@@ -57,11 +57,13 @@ export default function TeamMembersPage() {
             </p>
           </div>
 
-          <div className="flex flex-col gap-10">
-            {team.map((member) => (
+          <div className="flex flex-col">
+            {team.map((member, index) => (
               <article
                 key={member.name}
-                className="grid items-center gap-8 md:grid-cols-[minmax(200px,280px)_1fr] md:gap-10"
+                className={`grid items-start gap-8 md:grid-cols-[minmax(200px,280px)_1fr] md:gap-10 ${
+                  index > 0 ? "mt-[60px] border-t border-cream-400 pt-[60px]" : ""
+                }`}
               >
                 <div className="relative aspect-[4/5] w-full overflow-hidden bg-cream-300">
                   <Image
@@ -72,7 +74,7 @@ export default function TeamMembersPage() {
                     className={`object-cover ${member.object}`}
                   />
                 </div>
-                <div className="min-w-0 py-2">
+                <div className="min-w-0">
                   <h3 className="font-heading text-[clamp(22px,2vw,28px)] leading-[1.15] text-navy-900">
                     {member.name}
                   </h3>
@@ -80,12 +82,7 @@ export default function TeamMembersPage() {
                     {member.role}
                   </div>
                   {"bio" in member && member.bio ? (
-                    <details className="group mt-4">
-                      <summary className="inline-block cursor-pointer list-none border-b border-ember-500 pb-0.5 text-[15px] font-bold text-ember-600 marker:content-none [&::-webkit-details-marker]:hidden hover:text-navy-900">
-                        Read Bio
-                      </summary>
-                      <p className="mt-3.5 border-t border-cream-400 pt-3.5 leading-[1.7] text-ink-muted">{member.bio}</p>
-                    </details>
+                    <p className="mt-4 leading-[1.7] text-ink-muted">{member.bio}</p>
                   ) : null}
                 </div>
               </article>

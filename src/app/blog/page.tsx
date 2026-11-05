@@ -43,6 +43,9 @@ export default function BlogPage() {
                       {post.tag} · {post.read}
                     </div>
                     <h2 className="text-[22px] leading-[1.25] group-hover:text-ember-600">{post.title}</h2>
+                    <p className="text-sm text-ink-soft">
+                      By {post.author} · {post.date}
+                    </p>
                     <p className="flex-1 leading-[1.65] text-ink-muted">{post.excerpt}</p>
                     <span className="mt-2 inline-flex items-center gap-2.5 font-heading text-[13px] leading-none font-bold tracking-[0.12em] uppercase">
                       Read Article

@@ -21,18 +21,18 @@ export default function TestimonialsPage() {
 
       <section className="section-y">
         <div className="container-page">
-          <ul className="grid gap-8 lg:grid-cols-3">
+          <ul className="flex flex-col gap-10">
             {testimonials.map((t) => (
-              <li key={t.name} className="flex">
-                <figure className="flex w-full flex-col gap-8 border-t-[3px] border-ember-500 bg-white px-9 py-10 shadow-[0_8px_24px_rgba(17,25,41,0.06)] transition-shadow hover:shadow-[0_20px_40px_rgba(17,25,41,0.12)]">
-                  <figcaption className="flex items-center gap-4">
-                    <div className="relative size-16 shrink-0 rounded-full border-2 border-ember-500 p-[3px]">
+              <li key={t.name}>
+                <figure className="grid gap-8 border-t-[3px] border-ember-500 bg-white px-9 py-10 shadow-[0_8px_24px_rgba(17,25,41,0.06)] md:grid-cols-[auto_1fr] md:items-start md:gap-10">
+                  <figcaption className="flex shrink-0 items-center gap-4 md:w-[240px] md:flex-col md:items-start">
+                    <div className="relative size-20 shrink-0 rounded-full border-2 border-ember-500 p-[3px]">
                       <div className="relative size-full overflow-hidden rounded-full bg-[#d9dde3]">
                         <Image
                           src={t.img}
                           alt={t.name}
                           fill
-                          sizes="64px"
+                          sizes="80px"
                           className="scale-125 object-cover object-center"
                         />
                       </div>
@@ -42,8 +42,10 @@ export default function TestimonialsPage() {
                       <div className="text-sm text-ink-soft">{t.role}</div>
                     </div>
                   </figcaption>
-                  <blockquote className="flex-1 leading-[1.75] text-ink-muted">
-                    <p>&ldquo;{t.quote}&rdquo;</p>
+                  <blockquote>
+                    <h3 className="text-[clamp(20px,2.2vw,28px)] leading-[1.35] text-navy-900">
+                      &ldquo;{t.quote}&rdquo;
+                    </h3>
                   </blockquote>
                 </figure>
               </li>

@@ -216,6 +216,7 @@ export const testimonials = [
     name: "Phillip Leesman",
     role: "Agency Owner, Joplin, Missouri",
     img: "/images/phillip.png",
+    highlight: "The support and training I needed to succeed as an agent and business owner.",
     short:
       "I have been given the support and training that I needed from my district office to be a successful insurance agent as well as a successful business owner.",
     quote:
@@ -225,6 +226,7 @@ export const testimonials = [
     name: "Robert Queen",
     role: "Agency Owner, Joplin, Missouri",
     img: "/images/robert.png",
+    highlight: "After 15 years, I would make the same decision again.",
     short:
       "After 15 years as a Farmers Agency owner, I can honestly say I would make the same decision again.",
     quote:
@@ -234,6 +236,7 @@ export const testimonials = [
     name: "Andrew Bryant",
     role: "Agency Owner, Forsyth, Missouri",
     img: "/images/andrew.png",
+    highlight: "That moment changed my life.",
     short:
       "About thirteen years ago a recruiter approached me in the parking lot, regarding working for Farmers Insurance. I didn't know it, but that moment changed my life.",
     quote:

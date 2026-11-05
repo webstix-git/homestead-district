@@ -47,7 +47,7 @@ export default async function BlogPostPage({ params }: Props) {
         <div className="container-page grid items-start gap-12 lg:grid-cols-[1.4fr_0.7fr] lg:gap-16">
           <article>
             <p className="mb-6 text-sm text-ink-soft">
-              By {site.name} · {post.read}
+              Written by {post.author} · {post.date} · {post.read}
             </p>
             <figure>
               <div className="relative aspect-[16/10] overflow-hidden bg-navy-900">

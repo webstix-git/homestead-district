@@ -7,14 +7,16 @@ export function cn(...parts: (string | false | null | undefined)[]) {
   return parts.filter(Boolean).join(" ");
 }
 
-export type ButtonVariant = "primary" | "outline" | "outline-dark" | "dark";
+export type ButtonVariant = "primary" | "outline" | "outline-dark" | "dark" | "white";
 export type ButtonSize = "md" | "lg";
 
 const variants: Record<ButtonVariant, string> = {
-  primary: "border-ember-500 bg-ember-500 text-navy-900 hover:border-ember-400 hover:bg-ember-400",
+  primary:
+    "border-ember-500 bg-ember-500 text-white [text-shadow:2px_2px_0_rgba(0,0,0,0.45)] hover:border-ember-400 hover:bg-ember-400",
   outline: "border-white/40 bg-transparent text-white hover:border-ember-500 hover:text-ember-500",
   "outline-dark": "border-navy-900 bg-transparent text-navy-900 hover:bg-navy-900 hover:text-white",
   dark: "border-navy-900 bg-navy-900 text-white hover:border-white hover:bg-white hover:text-navy-900",
+  white: "border-white bg-white text-navy-900 hover:border-cream-100 hover:bg-cream-100",
 };
 
 const sizes: Record<ButtonSize, string> = {

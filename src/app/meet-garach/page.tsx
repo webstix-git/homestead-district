@@ -64,7 +64,7 @@ export default function MeetGarachPage() {
             I have helped many people build and scale an insurance agency, and I am excited about the possibility of
             working with you.
           </p>
-          <div className="font-heading text-[15px] font-bold">
+          <div className="font-heading text-[30px] font-bold">
             Garach Smith <span className="font-medium text-ink-soft">&nbsp;/&nbsp; District Manager</span>
           </div>
         </div>
@@ -126,7 +126,6 @@ export default function MeetGarachPage() {
                 key={item.title}
                 className="flex flex-col gap-4 border border-white/15 px-8 py-10 transition-colors hover:border-ember-500"
               >
-                <div className="h-[3px] w-8 bg-ember-500" />
                 <div className="font-heading text-5xl leading-none font-light text-ember-500">{index + 1}</div>
                 <h3 className="text-[22px] leading-[1.25]">{item.title}</h3>
                 <p className="leading-[1.7] text-mist-200">{item.body}</p>
