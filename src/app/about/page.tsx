@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { Handshake, LineChart, Users, Wrench } from "lucide-react";
 import { CtaBanner } from "@/components/CtaBanner";
 import { PageHero, Watermark } from "@/components/PageHero";
 import { Accent, Button, Eyebrow } from "@/components/ui";
 import { aboutStats, frameworkPoints, regions } from "@/lib/content";
 import { site } from "@/lib/site";
+
+const frameworkIcons = [Users, LineChart, Wrench, Handshake] as const;
 
 export const metadata: Metadata = {
   title: "About the District",
@@ -105,19 +108,22 @@ export default function AboutPage() {
             <h3 className="mb-6 font-heading text-[13px] font-bold tracking-[0.18em] text-ember-600 uppercase">
               We Provide the Framework to Help You
             </h3>
-            <ol className="flex flex-col gap-3">
-              {frameworkPoints.map((point, index) => (
-                <li
-                  key={point}
-                  className="flex items-center gap-[18px] border-l-4 border-ember-500 bg-white px-[22px] py-[18px] shadow-[0_8px_24px_rgba(17,25,41,0.06)]"
-                >
-                  <span className="flex size-9 shrink-0 items-center justify-center rounded-full bg-ember-500 font-heading text-[15px] font-bold text-navy-900">
-                    {index + 1}
-                  </span>
-                  <span className="font-heading text-[17px] leading-[1.4] font-bold">{point}</span>
-                </li>
-              ))}
-            </ol>
+            <ul className="flex flex-col gap-3">
+              {frameworkPoints.map((point, index) => {
+                const Icon = frameworkIcons[index] ?? Users;
+                return (
+                  <li
+                    key={point}
+                    className="flex items-center gap-[18px] border-l-4 border-ember-500 bg-white px-[22px] py-[18px] shadow-[0_8px_24px_rgba(17,25,41,0.06)]"
+                  >
+                    <span className="grid size-9 shrink-0 place-items-center rounded-full bg-ember-500 text-navy-900">
+                      <Icon className="size-4" strokeWidth={2.25} aria-hidden="true" />
+                    </span>
+                    <span className="font-heading text-[17px] leading-[1.4] font-bold">{point}</span>
+                  </li>
+                );
+              })}
+            </ul>
           </div>
         </div>
       </section>
@@ -172,9 +178,11 @@ export default function AboutPage() {
               the region.
             </p>
             <address className="border-l-[3px] border-ember-500 pl-5 text-[17px] leading-[1.8] font-semibold not-italic">
-              {site.street}
-              <br />
-              {site.locality}
+              <a href={site.mapHref} target="_blank" rel="noopener noreferrer" className="hover:text-ember-500">
+                {site.street}
+                <br />
+                {site.locality}
+              </a>
               <br />
               <span className="font-normal text-mist-300">{site.hours}</span>
             </address>

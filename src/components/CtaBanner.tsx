@@ -10,7 +10,7 @@ export function CtaBanner() {
         width={880}
         height={865}
         aria-hidden="true"
-        className="pointer-events-none absolute -top-24 -right-20 w-[460px] opacity-[0.12] mix-blend-multiply invert"
+        className="pointer-events-none absolute -top-24 -right-20 w-[460px] opacity-[0.03] mix-blend-multiply invert"
       />
       <div className="container-page relative flex flex-col gap-10 lg:flex-row lg:items-center lg:justify-between lg:gap-16">
         <div className="max-w-[720px]">
@@ -25,7 +25,7 @@ export function CtaBanner() {
             className={buttonClass(
               "outline-dark",
               "lg",
-              "border-navy-900 bg-navy-900/55 text-white hover:border-navy-900 hover:bg-navy-900/70 hover:text-white",
+              "border-2 border-navy-900/50 bg-white/50 text-navy-900 hover:border-navy-900 hover:bg-navy-900 hover:text-white",
             )}
             iconClassName="size-5"
           />

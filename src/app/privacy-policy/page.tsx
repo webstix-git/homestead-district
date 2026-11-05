@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { BackHome } from "@/components/BackHome";
 import { PageHero } from "@/components/PageHero";
 import { PhoneLink } from "@/components/ui";
 import { site } from "@/lib/site";
@@ -144,9 +145,11 @@ export default function PrivacyPolicyPage() {
           <div className="mt-14 border-t-[3px] border-ember-500 bg-navy-900 p-8 text-white">
             <div className="mb-3 font-heading text-lg font-bold">{site.legalName}</div>
             <address className="mb-4 text-[17px] leading-[1.7] text-mist-100 not-italic">
-              {site.street}
-              <br />
-              {site.locality}
+              <a href={site.mapHref} target="_blank" rel="noopener noreferrer" className="hover:text-ember-500">
+                {site.street}
+                <br />
+                {site.locality}
+              </a>
             </address>
             <div className="flex flex-col gap-2 text-[17px]">
               <PhoneLink className="w-fit font-semibold hover:text-ember-500" />
@@ -155,6 +158,8 @@ export default function PrivacyPolicyPage() {
               </a>
             </div>
           </div>
+
+          <BackHome />
         </div>
       </article>
     </>

@@ -71,17 +71,17 @@ export const pillars = [
 ];
 
 export const coachingPoints = [
-  "Clear Goals and Honest Accountability",
-  "Regular One-on-One Coaching",
-  "Repeatable Systems for Growth",
-  "Habits That Keep an Agency Steady",
+  "Clear Expectations & Accountability",
+  "Ongoing Mentorship & Guidance",
+  "Repeatable Growth Systems",
+  "Discipline for Durable Businesses",
 ];
 
 export const whoFor = [
-  "Entrepreneurs who want to own a business without starting from scratch",
-  "Current business owners looking for their next venture",
-  "Sales and leadership professionals ready to build something that scales",
-  "People who want independence and are comfortable owning the results",
+  "An entrepreneur seeking business ownership",
+  "A business owner ready for your next chapter",
+  "A sales or leadership professional looking to build a scalable operation",
+  "Motivated by autonomy, accountability, and long-term growth",
 ];
 
 export const brandFromFarmers = [
@@ -225,7 +225,8 @@ export const testimonials = [
     name: "Robert Queen",
     role: "Agency Owner, Joplin, Missouri",
     img: "/images/robert.png",
-    short: "After 15 years as a Farmers Agency owner, I can honestly say I would make the same decision again.",
+    short:
+      "After 15 years as a Farmers Agency owner, I can honestly say I would make the same decision again.",
     quote:
       "After 15 years as a Farmers Agency owner, I can honestly say I would make the same decision again. Farmers provided the training, technology, and support that allowed me to build a business that has grown year after year. One of the greatest blessings has been working alongside my family and watching my son grow into an outstanding producer who I know will one day carry on the agency. If you're willing to put in the work, Farmers gives you the tools and support to build a rewarding business, serve your community, and create a legacy for your family.",
   },
@@ -242,38 +243,27 @@ export const testimonials = [
 
 export const faqs = [
   {
-    q: "What Is the Homestead District Agency Ownership Opportunity?",
-    a: "It is the chance to own and run a Farmers Insurance branded agency. You operate the business as the owner, and our district provides training, coaching, and ongoing support.",
+    q: "What Are Foundational Steps for Starting an Insurance Agency?",
+    a: "When researching how to start an insurance agency, creating a comprehensive business plan is your first major milestone. Your business plan should include a proposed budget, staffing needs, and most importantly, a strong marketing plan. Many professionals ask how to open an insurance agency that is competitive in today's digital market. We train on the best ways to market your insurance agency so you can reach a wide audience and sell more insurance.",
   },
   {
-    q: "Do I Need Insurance Experience to Become an Agency Owner?",
-    a: "No. Many of our owners came from other careers. You will earn your insurance licenses and complete training as part of the process. Sales, management, or small business experience helps, but it is not required.",
+    q: "What Is the Best Way to Scale?",
+    a: "After you master the basics of how to start an insurance agency, the focus naturally shifts to expansion. Many agents ask how to grow an insurance agency efficiently, and the answer usually lies in digital marketing, leveraging SEO, networking locally with the right professionals, building a team of producers, and providing excellent client service to your clients.",
   },
   {
-    q: "What Are the Steps to Becoming a Farmers Agency Owner?",
-    a: "There are five: application, assessment, interview, licensing, and training. Garach Smith walks every candidate through each one.",
+    q: "How Do You Choose Between Which Lines to Sell?",
+    a: "It starts with building and scaling your personal lines business (auto and home insurance). Then, selecting a specific niche can accelerate your success. If you want to know how to start auto insurance business services or are researching how to start a car insurance business, you will focus heavily on volume. Conversely, if you are exploring how to start a life insurance business, your marketing will center on long-term financial planning and family protection. Ultimately, when you decide to start your insurance business operations, selecting a specialized line can make you the go-to expert in your local market.",
   },
   {
-    q: "Do I Have to Live in Springfield?",
-    a: "No. We focus on Springfield and the surrounding Southwest Missouri area, and we also work with candidates in Southeast Kansas.",
+    q: "Is It Possible to Run My Agency Remotely?",
+    a: "Many independent agents search for how to start an insurance agency from home because remote setups offer incredible flexibility. Our program is designed to facilitate the eventual ownership of an insurance agency, which is difficult to do remotely. With our training and program, you can be confident that you are receiving world-class insurance training designed so that you can maintain a successful, and sustainable, business.",
   },
   {
-    q: "What Support Do I Get After My Agency Opens?",
-    a: "You will keep meeting with Garach for coaching, have access to ongoing training, and be part of a network of agency owners across the district.",
+    q: "Do You Need Experience?",
+    a: "Sales experience is definitely helpful, but not required. The biggest factor is: Do you like to talk to people and are you capable of building a team? Our training is designed to teach folks from all different backgrounds.",
   },
   {
-    q: "What Kind of Person Does Well in This Role?",
-    a: "People who want to own a business, are comfortable being accountable for results, and enjoy building relationships in their community. Work ethic matters more than any specific background.",
+    q: "Are Insurance Agents Being Replaced by AI?",
+    a: "There is no doubt that AI will play a big role in the insurance industry. In short, AI isn't replacing agents; it's just making insurance agents more efficient at what they do. Agents are able to delegate many routine tasks to AI so they can focus more on building relationships with the clients.",
   },
-  {
-    q: "How Do I Get Started?",
-    a: "Fill out the application on our Contact page or call the office at (417) 844-7210. Garach will reach out to set up a conversation.",
-  },
-];
-
-export const experienceOptions = [
-  "None Yet",
-  "Some Sales Experience",
-  "Licensed or Currently in Insurance",
-  "Former Agency Owner",
 ];

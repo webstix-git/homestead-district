@@ -2,6 +2,8 @@ import type { ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
+type Crumb = { label: string; href?: string };
+
 type PageHeroProps = {
   /** Becomes the page heading (h1). */
   eyebrow: string;
@@ -14,6 +16,14 @@ type PageHeroProps = {
   noWatermark?: boolean;
   children?: ReactNode;
   aside?: ReactNode;
+  /** Shown directly under the hero. Defaults to Home / eyebrow. */
+  breadcrumb?: Crumb[];
+  /** Skip rendering the breadcrumb (e.g. when the page places it elsewhere). */
+  hideBreadcrumb?: boolean;
+  /** Extra classes for the breadcrumb strip (defaults to cream section bg). */
+  breadcrumbClassName?: string;
+  /** Use the taller auto-height hero (e.g. Opportunity with CTA buttons). */
+  tall?: boolean;
 };
 
 export function Watermark({ className }: { className?: string }) {
@@ -33,22 +43,22 @@ export function Breadcrumb({
   items,
   className,
 }: {
-  items: { label: string; href?: string }[];
+  items: Crumb[];
   className?: string;
 }) {
   return (
-    <nav aria-label="Breadcrumb" className={className}>
+    <nav aria-label="Breadcrumb" className={className ?? "bg-cream-100"}>
       <div className="container-page py-4">
         <ol className="flex flex-wrap items-center gap-2 text-sm text-ink-soft">
           {items.map((item, index) => (
             <li key={`${item.label}-${index}`} className="flex items-center gap-2">
-              {index > 0 ? <span className="text-mist-400">/</span> : null}
+              {index > 0 ? <span className="text-ember-500">/</span> : null}
               {item.href ? (
                 <Link href={item.href} className="hover:text-ember-600">
                   {item.label}
                 </Link>
               ) : (
-                <span className="font-medium text-navy-900">{item.label}</span>
+                <span className="font-semibold text-navy-900">{item.label}</span>
               )}
             </li>
           ))}
@@ -58,32 +68,74 @@ export function Breadcrumb({
   );
 }
 
-export function PageHero({ eyebrow, title, description, image, noWatermark, children, aside }: PageHeroProps) {
+export function PageHero({
+  eyebrow,
+  title,
+  description,
+  image,
+  noWatermark,
+  children,
+  aside,
+  breadcrumb,
+  hideBreadcrumb = false,
+  breadcrumbClassName,
+  tall = false,
+}: PageHeroProps) {
+  const crumbs = breadcrumb ?? [{ label: "Home", href: "/" }, { label: eyebrow }];
+
   return (
-    <section className="hero-pt relative overflow-hidden bg-navy-900 pb-[clamp(56px,7vw,104px)] text-white">
-      {image ? (
-        <>
-          <Image src={image} alt="" fill priority sizes="100vw" className="object-cover" />
-          <div className="absolute inset-0 z-[1] bg-[linear-gradient(100deg,rgba(17,25,41,0.97)_0%,rgba(17,25,41,0.88)_50%,rgba(17,25,41,0.6)_100%)]" />
-        </>
-      ) : (
-        <div className="pointer-events-none absolute inset-0 [background-image:linear-gradient(rgba(255,255,255,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.035)_1px,transparent_1px)] [background-size:80px_80px] [mask-image:radial-gradient(ellipse_at_70%_30%,#000_0%,transparent_75%)]" />
-      )}
-      {noWatermark ? null : <Watermark className="-right-16 -bottom-40 w-[520px] opacity-[0.06]" />}
-      <div className="container-page relative z-[2]">
-        <div className={aside ? "grid items-center gap-12 lg:grid-cols-[1.2fr_0.8fr] lg:gap-20" : undefined}>
-          <div>
-            {/* Eyebrow text is the heading; former heading is the description */}
-            <h1 className="h-page max-w-[900px]">{eyebrow}</h1>
-            <div className="mt-7 max-w-[720px] text-[clamp(18px,1.6vw,22px)] leading-[1.55] font-medium text-mist-50 text-balance">
-              {title}
+    <>
+      <section
+        className={
+          tall
+            ? "hero-pt relative overflow-hidden bg-navy-900 pb-[clamp(56px,7vw,104px)] text-white"
+            : "relative flex h-[400px] items-center overflow-hidden bg-navy-900 pt-[84px] text-white min-[1100px]:pt-[112px]"
+        }
+      >
+        {image ? (
+          <>
+            <Image src={image} alt="" fill priority sizes="100vw" className="object-cover" />
+            <div className="absolute inset-0 z-[1] bg-[linear-gradient(100deg,rgba(17,25,41,0.97)_0%,rgba(17,25,41,0.88)_50%,rgba(17,25,41,0.6)_100%)]" />
+          </>
+        ) : (
+          <div className="pointer-events-none absolute inset-0 [background-image:linear-gradient(rgba(255,255,255,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.035)_1px,transparent_1px)] [background-size:80px_80px] [mask-image:radial-gradient(ellipse_at_70%_30%,#000_0%,transparent_75%)]" />
+        )}
+        {noWatermark ? null : <Watermark className="-right-16 -bottom-40 w-[520px] opacity-[0.06]" />}
+        <div className={`container-page relative z-[2] w-full ${tall ? "" : "py-6"}`}>
+          <div className={aside ? "grid items-center gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:gap-16" : undefined}>
+            <div>
+              <h1
+                className={
+                  tall
+                    ? "h-page max-w-[900px]"
+                    : "font-heading max-w-[900px] text-[clamp(28px,4vw,48px)] leading-[1.08] font-bold tracking-[-0.025em] text-balance"
+                }
+              >
+                {eyebrow}
+              </h1>
+              <div
+                className={
+                  tall
+                    ? "mt-7 max-w-[720px] text-[clamp(18px,1.6vw,22px)] leading-[1.55] font-medium text-mist-50 text-balance"
+                    : "mt-3 max-w-[720px] text-[clamp(16px,1.5vw,20px)] leading-[1.45] font-medium text-mist-50 text-balance"
+                }
+              >
+                {title}
+              </div>
+              {description ? (
+                <p className={`max-w-[640px] text-mist-200 ${tall ? "mt-5 leading-[1.65]" : "mt-3 leading-[1.55]"}`}>
+                  {description}
+                </p>
+              ) : null}
+              {children ? (
+                <div className={`flex flex-wrap items-center gap-4 ${tall ? "mt-10" : "mt-6"}`}>{children}</div>
+              ) : null}
             </div>
-            {description ? <p className="mt-5 max-w-[640px] leading-[1.65] text-mist-200">{description}</p> : null}
-            {children ? <div className="mt-10 flex flex-wrap items-center gap-4">{children}</div> : null}
+            {aside}
           </div>
-          {aside}
         </div>
-      </div>
-    </section>
+      </section>
+      {hideBreadcrumb ? null : <Breadcrumb items={crumbs} className={breadcrumbClassName} />}
+    </>
   );
 }

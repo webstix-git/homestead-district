@@ -4,7 +4,6 @@ import { BackHome } from "@/components/BackHome";
 import { PageHero } from "@/components/PageHero";
 import { PhoneLink } from "@/components/ui";
 import { pathways, steps } from "@/lib/content";
-import { posts } from "@/lib/posts";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -21,14 +20,9 @@ const pages = [
   { label: "About the District", href: "/about" },
   { label: "Meet Garach", href: "/meet-garach" },
   { label: "Team Members", href: "/team-members" },
-  { label: "Testimonials", href: "/testimonials" },
+  { label: "Agent Testimonials", href: "/testimonials" },
   { label: "FAQ", href: "/faq" },
   { label: "Blog", href: "/blog" },
-  ...posts.map((post) => ({ label: post.title, href: `/blog/${post.slug}` })),
-  { label: "Contact & Apply", href: "/contact" },
-  { label: "Privacy Policy", href: "/privacy-policy" },
-  { label: "AI Policy", href: "/ai-policy" },
-  { label: "Site Map", href: "/site-map" },
 ];
 
 export default function AiReadinessPage() {
@@ -58,7 +52,10 @@ export default function AiReadinessPage() {
                   </a>
                 </li>
                 <li>
-                  Address: {site.street}, {site.locality}
+                  Address:{" "}
+                  <a href={site.mapHref} target="_blank" rel="noopener noreferrer" className={linkClass}>
+                    {site.street}, {site.locality}
+                  </a>
                 </li>
                 <li>Hours: {site.hours}</li>
                 <li>Service Area: Springfield metro, Southwest Missouri, and Southeast Kansas</li>

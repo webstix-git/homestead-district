@@ -5,9 +5,12 @@ type Faq = { q: string; a: ReactNode };
 /** Always-open FAQ list. No expand/collapse controls. */
 export function FaqAccordion({ items }: { items: Faq[] }) {
   return (
-    <div className="border-t border-cream-300">
+    <div className="flex flex-col gap-5">
       {items.map((item) => (
-        <article key={item.q} className="border-b border-cream-300 py-7">
+        <article
+          key={item.q}
+          className="rounded-lg border border-cream-400 bg-white px-6 py-7 sm:px-8"
+        >
           <h2 className="mb-4 font-heading text-[clamp(17px,1.6vw,20px)] leading-[1.35] font-bold tracking-normal">
             {item.q}
           </h2>

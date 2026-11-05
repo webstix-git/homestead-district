@@ -26,8 +26,16 @@ export default function TestimonialsPage() {
               <li key={t.name} className="flex">
                 <figure className="flex w-full flex-col gap-8 border-t-[3px] border-ember-500 bg-white px-9 py-10 shadow-[0_8px_24px_rgba(17,25,41,0.06)] transition-shadow hover:shadow-[0_20px_40px_rgba(17,25,41,0.12)]">
                   <figcaption className="flex items-center gap-4">
-                    <div className="relative size-16 shrink-0 overflow-hidden rounded-full bg-[#123a8a]">
-                      <Image src={t.img} alt={t.name} fill sizes="64px" className="object-cover object-center" />
+                    <div className="relative size-16 shrink-0 rounded-full border-2 border-ember-500 p-[3px]">
+                      <div className="relative size-full overflow-hidden rounded-full bg-[#d9dde3]">
+                        <Image
+                          src={t.img}
+                          alt={t.name}
+                          fill
+                          sizes="64px"
+                          className="scale-125 object-cover object-center"
+                        />
+                      </div>
                     </div>
                     <div>
                       <div className="font-heading text-lg font-bold">{t.name}</div>

@@ -1,110 +1,104 @@
 import type { Metadata } from "next";
+import type { ReactNode } from "react";
 import Link from "next/link";
 import { CtaBanner } from "@/components/CtaBanner";
 import { FaqAccordion } from "@/components/FaqAccordion";
 import { PageHero } from "@/components/PageHero";
-import { PhoneLink } from "@/components/ui";
+import { Button, PhoneLink } from "@/components/ui";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "FAQ",
   description:
-    "Straightforward answers about owning a Farmers Insurance agency with Homestead District: experience, steps, location, and support.",
+    "Answers about starting, scaling, and owning an insurance agency with Homestead District mentorship and training.",
 };
 
 const linkClass = "font-semibold text-ember-600 underline underline-offset-4 hover:text-navy-900";
 
-const faqs = [
+function A({ href, children }: { href: string; children: ReactNode }) {
+  return (
+    <Link href={href} className={linkClass}>
+      {children}
+    </Link>
+  );
+}
+
+const faqItems: { q: string; a: ReactNode }[] = [
   {
-    q: "What Is the Homestead District Agency Ownership Opportunity?",
+    q: "What Are Foundational Steps for Starting an Insurance Agency?",
     a: (
       <p>
-        It is a chance to own and run a Farmers Insurance branded agency. You run the business as the owner, and our
-        district walks with you through{" "}
-        <Link href="/opportunity" className={linkClass}>
-          training, coaching, and ongoing support
-        </Link>
-        .
+        When researching how to start an insurance agency, creating a comprehensive business plan is your first major
+        milestone. Your business plan should include a proposed budget, staffing needs, and most importantly, a strong
+        marketing plan. Many professionals ask how to open an insurance agency that is competitive in today&apos;s digital
+        market. We train on the best ways to market your insurance agency so you can reach a wide audience and sell more
+        insurance. Start by reviewing our{" "}
+        <A href="/opportunity">ownership pathways</A> or{" "}
+        <A href="/contact">apply to the district</A>.
       </p>
     ),
   },
   {
-    q: "Do I Need Insurance Experience to Become an Agency Owner?",
+    q: "What Is the Best Way to Scale?",
     a: (
       <p>
-        No. Plenty of our owners came from other careers. You earn your licenses and complete training as part of the
-        process. Sales, management, or small business experience helps, but it is not required. Read more about{" "}
-        <Link href="/about" className={linkClass}>
-          who we look for
-        </Link>
-        .
+        After you master the basics of how to start an insurance agency, the focus naturally shifts to expansion. Many
+        agents ask how to grow an insurance agency efficiently, and the answer usually lies in digital marketing,
+        leveraging SEO, networking locally with the right professionals, building a team of producers, and providing
+        excellent client service to your clients. See how Homestead District supports growth on the{" "}
+        <A href="/opportunity">Opportunity</A> page and in our{" "}
+        <A href="/blog">blog</A>.
       </p>
     ),
   },
   {
-    q: "What Are the Steps to Becoming a Farmers Agency Owner?",
+    q: "How Do You Choose Between Which Lines to Sell?",
     a: (
       <p>
-        There are five: application, assessment, interview, licensing, and training.{" "}
-        <Link href="/meet-garach" className={linkClass}>
-          Garach Smith
-        </Link>{" "}
-        walks every candidate through each one. See the full{" "}
-        <Link href="/opportunity#process" className={linkClass}>
-          path to ownership
-        </Link>
-        .
+        It starts with building and scaling your personal lines business (auto and home insurance). Then, selecting a
+        specific niche can accelerate your success. If you want to know how to start auto insurance business services or
+        are researching how to start a car insurance business, you will focus heavily on volume. Conversely, if you are
+        exploring how to start a life insurance business, your marketing will center on long-term financial planning and
+        family protection. Ultimately, when you decide to start your insurance business operations, selecting a specialized
+        line can make you the go-to expert in your local market. Garach can walk you through fit on a{" "}
+        <A href="/contact">discovery call</A>.
       </p>
     ),
   },
   {
-    q: "Do I Have to Live in Springfield?",
+    q: "Is It Possible to Run My Agency Remotely?",
     a: (
       <p>
-        No. We focus on Springfield and the surrounding Southwest Missouri area, and we also work with candidates in
-        Southeast Kansas. Learn more about{" "}
-        <Link href="/about" className={linkClass}>
-          our district
-        </Link>
-        .
+        Many independent agents search for how to start an insurance agency from home because remote setups offer
+        incredible flexibility. Our program is designed to facilitate the eventual ownership of an insurance agency, which
+        is difficult to do remotely. With our training and program, you can be confident that you are receiving world-class
+        insurance training designed so that you can maintain a successful, and sustainable, business. Learn more about the{" "}
+        <A href="/opportunity">path to ownership</A> and{" "}
+        <A href="/about">how the district works</A>.
       </p>
     ),
   },
   {
-    q: "What Support Do I Get After My Agency Opens?",
+    q: "Do You Need Experience?",
     a: (
       <p>
-        You keep meeting with Garach for coaching, get ongoing training, and stay connected with other owners across the
-        district. Hear from owners who have been there in our{" "}
-        <Link href="/testimonials" className={linkClass}>
-          agent testimonials
-        </Link>
-        .
+        Sales experience is definitely helpful, but not required. The biggest factor is: Do you like to talk to people and
+        are you capable of building a team? Our training is designed to teach folks from all different backgrounds. Hear
+        from current owners on our{" "}
+        <A href="/testimonials">Agent Testimonials</A> page, or{" "}
+        <A href="/meet-garach">meet Garach</A> to learn how mentorship works.
       </p>
     ),
   },
   {
-    q: "What Kind of Person Does Well in This Role?",
+    q: "Are Insurance Agents Being Replaced by AI?",
     a: (
       <p>
-        People who want to own a business, are comfortable owning the results, and enjoy building relationships in their
-        community. Work ethic matters more than any specific background. Our{" "}
-        <Link href="/blog" className={linkClass}>
-          blog
-        </Link>{" "}
-        has more on what ownership actually looks like day to day.
-      </p>
-    ),
-  },
-  {
-    q: "How Do I Get Started?",
-    a: (
-      <p>
-        Fill out the application on our{" "}
-        <Link href="/contact" className={linkClass}>
-          Contact
-        </Link>{" "}
-        page or call the office at <PhoneLink className={linkClass} />. Garach will reach out to set up a conversation.
+        There is no doubt that AI will play a big role in the insurance industry. In short, AI isn&apos;t replacing
+        agents; it&apos;s just making insurance agents more efficient at what they do. Agents are able to delegate many
+        routine tasks to AI so they can focus more on building relationships with the clients. Read our{" "}
+        <A href="/ai-policy">AI Policy</A> and{" "}
+        <A href="/ai-readiness-service-index">AI Readiness Service Index</A> for how we approach this.
       </p>
     ),
   },
@@ -113,22 +107,31 @@ const faqs = [
 export default function FaqPage() {
   return (
     <>
-      <PageHero
-        image="/images/bg-blog.jpg"
-        eyebrow="FAQ"
-        title="Questions about owning a Farmers agency, answered plainly."
-      />
+      <PageHero image="/images/bg-faq.jpg" eyebrow="FAQ" title="Frequently Asked Questions" />
 
       <section className="section-y-sm">
         <div className="container-page max-w-[920px]">
-          <FaqAccordion items={faqs} />
-          <p className="mt-10 text-ink-muted">
-            Still wondering about something? Reach us at{" "}
-            <a href={site.emailHref} className={linkClass}>
-              {site.email}
-            </a>{" "}
-            or call <PhoneLink className={linkClass} />.
-          </p>
+          <FaqAccordion items={faqItems} />
+          <div className="mt-12 border-t border-cream-400 pt-10">
+            <h2 className="h-display mb-4">Ready to Lead?</h2>
+            <p className="max-w-[640px] leading-[1.7] text-ink-muted">
+              The Homestead District is looking for motivated individuals ready to build a lasting legacy. Start your path
+              to agency ownership with mentorship that matters.
+            </p>
+            <div className="mt-8 flex flex-wrap items-center gap-4">
+              <Button href="/contact" arrow>
+                Apply to District
+              </Button>
+              <PhoneLink className={linkClass} />
+            </div>
+            <p className="mt-6 text-ink-muted">
+              Prefer email? Reach us at{" "}
+              <a href={site.emailHref} className={linkClass}>
+                {site.email}
+              </a>
+              .
+            </p>
+          </div>
         </div>
       </section>
 

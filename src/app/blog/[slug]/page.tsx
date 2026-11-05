@@ -4,8 +4,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Phone } from "lucide-react";
 import { CtaBanner } from "@/components/CtaBanner";
-import { Breadcrumb, PageHero } from "@/components/PageHero";
-import { Button, PhoneLink } from "@/components/ui";
+import { PageHero } from "@/components/PageHero";
+import { PhoneLink } from "@/components/ui";
 import { getPost, posts } from "@/lib/posts";
 import { site } from "@/lib/site";
 
@@ -33,10 +33,10 @@ export default async function BlogPostPage({ params }: Props) {
 
   return (
     <>
-      <PageHero eyebrow={post.title} title={post.excerpt} />
-      <Breadcrumb
-        className="border-b border-cream-300 bg-white"
-        items={[
+      <PageHero
+        eyebrow={post.title}
+        title={post.excerpt}
+        breadcrumb={[
           { label: "Home", href: "/" },
           { label: "Blog", href: "/blog" },
           { label: post.title },
@@ -85,12 +85,15 @@ export default async function BlogPostPage({ params }: Props) {
                 If this sparked a few questions, that is a good sign. Reach out and Garach will walk you through what the
                 next step looks like. No pressure, just a clear conversation.
               </p>
-              <div className="mt-6 flex flex-wrap items-center gap-3">
-                <Button href="/contact" arrow>
+              <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3">
+                <Link
+                  href="/contact"
+                  className="font-heading text-[13px] font-bold tracking-[0.12em] text-ember-600 uppercase underline underline-offset-4 hover:text-navy-900"
+                >
                   Apply Now
-                </Button>
+                </Link>
                 <PhoneLink
-                  className="inline-flex min-h-14 items-center gap-2 border border-navy-900 px-7 font-heading text-[13px] font-bold tracking-[0.12em] text-navy-900 uppercase hover:bg-navy-900 hover:text-white"
+                  className="font-heading text-[13px] font-bold tracking-[0.12em] text-navy-900 uppercase underline underline-offset-4 hover:text-ember-600"
                   iconClassName="size-4"
                 />
               </div>
@@ -107,13 +110,13 @@ export default async function BlogPostPage({ params }: Props) {
               </p>
               <Link
                 href="/contact"
-                className="mt-6 inline-flex rounded-[2px] bg-ember-500 px-5 py-3 font-heading text-sm font-bold tracking-[0.12em] text-navy-900 uppercase hover:bg-ember-400"
+                className="mt-6 inline-flex font-heading text-sm font-bold tracking-[0.12em] text-ember-500 uppercase underline underline-offset-4 hover:text-white"
               >
                 Start the Conversation
               </Link>
               <a
                 href={site.phoneHref}
-                className="mt-5 flex items-center gap-2 font-heading text-sm font-bold tracking-[0.08em] text-white uppercase hover:text-ember-500"
+                className="mt-5 flex items-center gap-2 font-heading text-sm font-bold tracking-[0.08em] text-white uppercase underline underline-offset-4 hover:text-ember-500"
               >
                 <Phone className="size-4" aria-hidden="true" />
                 {site.phone}

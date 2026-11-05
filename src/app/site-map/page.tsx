@@ -32,7 +32,7 @@ const groups = [
       { label: "Blog", href: "/blog" },
       ...posts.map((post) => ({ label: post.title, href: `/blog/${post.slug}` })),
       { label: "FAQ", href: "/faq" },
-      { label: "Testimonials", href: "/testimonials" },
+      { label: "Agent Testimonials", href: "/testimonials" },
     ],
   },
   {
@@ -46,15 +46,6 @@ const groups = [
       { label: "Meet Your District Manager", href: "/#garach" },
       { label: "Awards & Recognition", href: "/#awards" },
       { label: "Agent Testimonials", href: "/#testimonials" },
-    ],
-  },
-  {
-    title: "Policies",
-    links: [
-      { label: "Privacy Policy", href: "/privacy-policy" },
-      { label: "AI Policy", href: "/ai-policy" },
-      { label: "AI Readiness Service Index", href: "/ai-readiness-service-index" },
-      { label: "Site Map", href: "/site-map" },
     ],
   },
 ];

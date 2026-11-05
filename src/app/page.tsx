@@ -43,29 +43,27 @@ export default function HomePage() {
       <section className="relative overflow-hidden bg-navy-900 text-white">
         <Watermark className="-top-16 -right-28 w-[720px] opacity-[0.035]" />
         <div className="pointer-events-none absolute inset-0 [background-image:linear-gradient(rgba(255,255,255,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.035)_1px,transparent_1px)] [background-size:80px_80px] [mask-image:radial-gradient(ellipse_at_70%_30%,#000_0%,transparent_75%)]" />
-        <div className="container-page hero-pt relative grid items-end gap-[clamp(40px,6vw,88px)] lg:grid-cols-2">
-          <div className="pb-[clamp(40px,6vw,96px)]">
+        <div className="container-page hero-pt relative grid items-start gap-[clamp(40px,6vw,88px)] lg:grid-cols-2">
+          <div className="pb-[clamp(40px,6vw,96px)] lg:pt-2">
             <Eyebrow tone="light" className="mb-7">
-              Farmers Insurance Agency Ownership · Springfield, MO
+              Agency Ownership Opportunity
             </Eyebrow>
             <h1
               data-no-widow-fix
               className="mb-7 flex flex-col font-heading text-[clamp(32px,4vw,52px)] leading-[1.06] font-bold tracking-[-0.025em]"
             >
-              <span className="lg:whitespace-nowrap">Own a Farmers</span>
-              <span className="lg:whitespace-nowrap">Insurance Agency</span>
+              <span className="lg:whitespace-nowrap">Start Your Insurance</span>
               <span className="lg:whitespace-nowrap">
-                in <Accent>Southwest Missouri.</Accent>
+                Career <Accent>Today.</Accent>
               </span>
             </h1>
             <p className="mb-10 max-w-[540px] leading-[1.65] text-mist-200">
-              Homestead District is a Farmers Insurance district office in Springfield. We look for people who want to run
-              their own business, then help them get licensed, trained, and open an agency of their own. Garach Smith, a
-              former agency owner himself, works with every candidate one-on-one.
+              Your paycheck has a ceiling. Most careers pay you for your time. Agency ownership rewards the value you
+              create.
             </p>
             <div className="flex flex-wrap items-center gap-3.5">
               <Button href="/opportunity" arrow>
-                Explore the Opportunity
+                View Opportunities
               </Button>
               <Button href="/meet-garach" variant="outline">
                 Meet Garach
@@ -73,7 +71,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="relative flex items-end self-stretch">
+          <div className="relative flex items-start self-stretch">
             <div className="absolute inset-y-0 right-0 left-[12%] border-t-[3px] border-ember-500 bg-gradient-to-b from-navy-800 to-navy-850" />
             <div className="relative ml-[12%] aspect-[4/5] max-h-[640px] w-[88%]">
               <Image
@@ -148,21 +146,17 @@ export default function HomePage() {
             <div className="flex flex-col justify-center gap-10">
               <div>
                 <h3 className="mb-4 font-heading text-[clamp(26px,2.6vw,36px)] leading-[1.12] font-bold tracking-[-0.02em]">
-                  A Business You Build and Lead
+                  Build Something That Lasts
                 </h3>
-                <p className="mb-5 font-heading leading-[1.5] font-semibold">
-                  A salary pays you for your hours. An agency you own grows with the relationships, the team, and the book of
-                  business you build.
-                </p>
                 <div className="flex flex-col gap-5 leading-[1.7] text-ink-muted">
                   <p>
-                    Homestead District offers a structured path to owning a Farmers Insurance agency. We bring the
-                    leadership, training, and systems that already work. You bring the drive, accountability, and patience
-                    it takes to grow a business year after year.
+                    Through the Homestead District, qualified candidates can explore a structured path to agency ownership
+                    supported by leadership, training, and proven systems. This opportunity is designed for individuals who
+                    want responsibility, accountability, and the ability to grow a business over time.
                   </p>
                   <p className="font-semibold text-navy-900">
-                    This isn&apos;t a sales job with a new title. You&apos;ll own the operation, hire the team, and make the
-                    decisions, with an experienced district manager in your corner.
+                    This is not a traditional insurance sales role. It is an opportunity to build and lead your own
+                    operation with experienced guidance behind you.
                   </p>
                 </div>
               </div>
@@ -197,8 +191,8 @@ export default function HomePage() {
           <SectionHead
             tone="light"
             eyebrow="How We Coach"
-            title="Coaching Built Around How Agencies Actually Grow."
-            text="Garach Smith ran his own Farmers agency before he started recruiting and developing other owners. That experience shapes how we coach: set clear goals, build habits you can repeat, and run the business with discipline."
+            title="Mentorship That Builds Owners."
+            text="The Homestead District is built around clarity, discipline, and long-term value creation. Our leadership has spent a career recruiting, developing, and mentoring business owners."
             className="mb-14"
           />
           <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -225,8 +219,7 @@ export default function HomePage() {
           />
           <ul className="grid gap-px border border-cream-300 bg-cream-300 sm:grid-cols-2 lg:grid-cols-3">
             {pillars.map((pillar) => (
-              <li key={pillar.num} className="flex flex-col gap-3.5 bg-cream-100 px-9 pt-10 pb-11 transition-colors hover:bg-white">
-                <div className="font-heading text-[13px] font-bold tracking-[0.08em] text-ember-600">{pillar.num}</div>
+              <li key={pillar.title} className="flex flex-col gap-3.5 bg-cream-100 px-9 pt-10 pb-11 transition-colors hover:bg-white">
                 <h3 className="text-[21px] tracking-[-0.01em]">{pillar.title}</h3>
                 <p className="leading-[1.65] text-ink-muted">{pillar.body}</p>
               </li>
@@ -261,7 +254,10 @@ export default function HomePage() {
           <div>
             <Eyebrow tone="light">Brand + Mentorship</Eyebrow>
             <h2 className="h-display mb-6">
-              A National Name on the Door. <Accent>A Local Mentor</Accent> in Your Corner.
+              <span className="block">A National Name on the Door.</span>
+              <span className="block">
+                <Accent>A Local Mentor in Your Corner.</Accent>
+              </span>
             </h2>
             <p className="mb-11 max-w-[540px] leading-[1.7] text-mist-200">
               Most new business owners have to choose between independence and support. As a Farmers agency owner in our
@@ -318,8 +314,8 @@ export default function HomePage() {
             <Eyebrow>Meet Your District Manager</Eyebrow>
             <h2 className="h-display mb-7">I&apos;ve Been in Your Seat.</h2>
             <p className="mb-6 text-[clamp(19px,1.6vw,23px)] leading-[1.55] font-medium">
-              &ldquo;I have been an agency owner and learned how to run an agency. I understand what a big opportunity it
-              is. Mentoring and coaching fulfill me, so becoming a district manager felt like a natural next step.&rdquo;
+              &ldquo;I have helped many people build and scale an insurance agency, and I am excited about the possibility of
+              working with you.&rdquo;
             </p>
             <div className="mb-9 font-heading text-[15px] font-bold">
               Garach Smith <span className="font-medium text-ink-soft">&nbsp;/&nbsp; District Manager</span>
@@ -382,8 +378,16 @@ export default function HomePage() {
                   </div>
                   <blockquote className="flex-1 text-[17px] leading-[1.7] text-mist-100">{t.short}</blockquote>
                   <figcaption className="flex items-center gap-4 border-t border-white/10 pt-6">
-                    <div className="relative size-14 shrink-0 overflow-hidden rounded-full bg-[#123a8a]">
-                      <Image src={t.img} alt={t.name} fill sizes="56px" className="object-cover object-center" />
+                    <div className="relative size-14 shrink-0 rounded-full border-2 border-ember-500 p-[3px]">
+                      <div className="relative size-full overflow-hidden rounded-full bg-[#d9dde3]">
+                        <Image
+                          src={t.img}
+                          alt={t.name}
+                          fill
+                          sizes="56px"
+                          className="scale-125 object-cover object-center"
+                        />
+                      </div>
                     </div>
                     <div>
                       <div className="font-heading text-base font-bold">{t.name}</div>
@@ -396,7 +400,7 @@ export default function HomePage() {
           </ul>
           <div className="mt-12 flex justify-center">
             <Button href="/testimonials" variant="outline" arrow>
-              All Testimonials
+              Read More Agent Testimonials
             </Button>
           </div>
         </div>

@@ -2,17 +2,17 @@ export const site = {
   name: "Homestead District",
   legalName: "The Homestead District",
   manager: "Garach Smith",
-  phone: "(417) 844-7210",
-  phoneHref: "tel:4178447210",
+  phone: "(417) 397-7576",
+  phoneHref: "tel:4173977576",
   email: "gsmith18@farmersagent.com",
   emailHref: "mailto:gsmith18@farmersagent.com",
-  street: "1531 E. Bradford Pkwy #330",
-  locality: "Springfield, MO 54804",
+  street: "1531 E Bradford Pkwy Ste 330",
+  locality: "Springfield, MO 65804",
   hours: "Monday - Friday, 8:00 AM - 5:00 PM",
   facebook: "https://www.facebook.com/HomesteadDistrict/",
   url: "https://www.buildyourinsuranceagency.com",
   mapHref:
-    "https://www.google.com/maps/search/?api=1&query=1531+E.+Bradford+Pkwy+%23330%2C+Springfield%2C+MO+54804",
+    "https://www.google.com/maps/search/?api=1&query=1531+E+Bradford+Pkwy+Ste+330%2C+Springfield%2C+MO+65804",
   description: "A Farmers Insurance district office in Springfield, Missouri.",
 };
 
@@ -36,9 +36,10 @@ export const navItems: NavItem[] = [
     children: [
       { label: "Blog", href: "/blog" },
       { label: "FAQ", href: "/faq" },
-      { label: "Testimonials", href: "/testimonials" },
+      { label: "Agent Testimonials", href: "/testimonials" },
     ],
   },
+  { label: "Contact", href: "/contact" },
 ];
 
 export const exploreLinks: NavChild[] = [
@@ -49,7 +50,7 @@ export const exploreLinks: NavChild[] = [
   { label: "Team Members", href: "/team-members" },
   { label: "Blog", href: "/blog" },
   { label: "FAQ", href: "/faq" },
-  { label: "Testimonials", href: "/testimonials" },
+  { label: "Agent Testimonials", href: "/testimonials" },
   { label: "Contact", href: "/contact" },
 ];
 

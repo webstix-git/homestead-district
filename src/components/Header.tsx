@@ -71,9 +71,15 @@ export function Header() {
       >
         <div className="container-page flex h-10 items-center justify-between gap-6 text-[13px] text-mist-50">
           <div className="flex items-center gap-7">
-            <span>
+            <a
+              href={site.mapHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              tabIndex={scrolled ? -1 : undefined}
+              className="hover:text-ember-500"
+            >
               {site.street}, {site.locality}
-            </span>
+            </a>
             <span>{site.hours}</span>
           </div>
           <div className="flex items-center gap-6">
@@ -112,8 +118,8 @@ export function Header() {
             height={120}
             priority
             className={cn(
-              "w-auto transition-[height] duration-300",
-              scrolled ? "h-11 min-[1100px]:h-[52px]" : "h-14 min-[1100px]:h-20",
+              "h-[65px] w-auto transition-[height] duration-300",
+              scrolled && "h-11 min-[1100px]:h-[52px]",
             )}
           />
         </Link>
@@ -279,6 +285,11 @@ export function Header() {
             <a href={site.emailHref} className="inline-flex items-center gap-2">
               <Mail className="size-4" aria-hidden="true" />
               <span>{site.email}</span>
+            </a>
+            <a href={site.mapHref} target="_blank" rel="noopener noreferrer" className="leading-[1.5] hover:text-ember-500">
+              {site.street}
+              <br />
+              {site.locality}
             </a>
           </div>
         </div>

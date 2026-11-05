@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { CtaBanner } from "@/components/CtaBanner";
-import { PageHero, Watermark } from "@/components/PageHero";
+import { Breadcrumb, PageHero, Watermark } from "@/components/PageHero";
 import { Accent, Button, Eyebrow, SectionHead } from "@/components/ui";
 import { agentGets, opportunityStats, pathways, steps, testimonials } from "@/lib/content";
 
@@ -25,12 +25,14 @@ export default function OpportunityPage() {
           </>
         }
         description="A clear path for people ready to own a Farmers Insurance agency, with real mentorship and systems that already work."
+        hideBreadcrumb
+        tall
       >
-        <Button href="/contact" arrow>
-          Apply Now
+        <Button href="#pathways" arrow>
+          Explore Pathways
         </Button>
-        <Button href="#pathways" variant="outline">
-          Explore the Pathways
+        <Button href="/about" variant="outline">
+          Read More About Us
         </Button>
       </PageHero>
 
@@ -38,15 +40,22 @@ export default function OpportunityPage() {
       <section className="border-t border-white/10 bg-navy-950 text-white">
         <dl className="container-page grid sm:grid-cols-2 lg:grid-cols-4">
           {opportunityStats.map((stat) => (
-            <div key={stat.small} className="flex flex-col gap-1.5 py-[30px] pr-6">
+            <div key={stat.small} className="flex flex-col items-center gap-1.5 py-[30px] text-center">
               <dd className="order-0 font-heading text-[30px] leading-none font-bold tracking-[-0.02em] text-ember-500">
                 {stat.big}
               </dd>
-              <dt className="order-1 text-sm leading-snug text-mist-300">{stat.small}</dt>
+              <dt className="order-1 max-w-[200px] text-sm leading-snug text-mist-300">{stat.small}</dt>
             </div>
           ))}
         </dl>
       </section>
+
+      <Breadcrumb
+        items={[
+          { label: "Home", href: "/" },
+          { label: "Agency Ownership Opportunity" },
+        ]}
+      />
 
       {/* Intro */}
       <section className="section-y">
@@ -93,7 +102,10 @@ export default function OpportunityPage() {
             eyebrow="Pathways to Ownership"
             title={
               <>
-                Three Ways In. <Accent>One Destination.</Accent>
+                <span className="block">Three Ways In.</span>
+                <span className="block">
+                  <Accent>One Destination.</Accent>
+                </span>
               </>
             }
             text="Everyone starts somewhere different. Compare the paths below, then talk with Garach about which one fits you."
@@ -150,8 +162,16 @@ export default function OpportunityPage() {
             serve your community, and create a legacy for your family.
           </blockquote>
           <figcaption className="flex items-center gap-4">
-            <div className="relative size-14 shrink-0 overflow-hidden rounded-full border-2 border-ember-500">
-              <Image src={robert.img} alt={robert.name} fill sizes="56px" className="object-cover object-center" />
+            <div className="relative size-14 shrink-0 rounded-full border-2 border-ember-500 p-[3px]">
+              <div className="relative size-full overflow-hidden rounded-full bg-[#d9dde3]">
+                <Image
+                  src={robert.img}
+                  alt={robert.name}
+                  fill
+                  sizes="56px"
+                  className="scale-125 object-cover object-center"
+                />
+              </div>
             </div>
             <div>
               <div className="font-heading text-base font-bold">{robert.name}</div>
@@ -228,14 +248,16 @@ export default function OpportunityPage() {
                 16 Years as an Insurance Leader. <Accent>One Agency Built, Grown, and Sold.</Accent>
               </h2>
               <div className="flex items-center gap-4">
-                <div className="relative size-16 shrink-0 overflow-hidden rounded-full border-2 border-ember-500">
-                  <Image
-                    src="/images/garach-hero.jpg"
-                    alt="Garach Smith"
-                    fill
-                    sizes="64px"
-                    className="object-cover object-[center_15%]"
-                  />
+                <div className="relative size-16 shrink-0 rounded-full border-2 border-ember-500 p-[3px]">
+                  <div className="relative size-full overflow-hidden rounded-full bg-[#d9dde3]">
+                    <Image
+                      src="/images/garach-hero.jpg"
+                      alt="Garach Smith"
+                      fill
+                      sizes="64px"
+                      className="object-cover object-[center_15%]"
+                    />
+                  </div>
                 </div>
                 <div>
                   <div className="font-heading text-base font-bold">Garach Smith</div>

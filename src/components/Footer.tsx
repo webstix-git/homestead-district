@@ -22,7 +22,7 @@ export function Footer() {
         <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-[1.4fr_0.8fr_1.3fr_1.3fr] lg:gap-14">
           <div>
             <Link href="/" aria-label="The Homestead District, home" className="inline-block">
-              <Image src="/images/logo.png" alt="The Homestead District" width={520} height={120} className="h-16 w-auto" />
+              <Image src="/images/logo.png" alt="The Homestead District" width={520} height={120} className="h-[65px] w-auto" />
             </Link>
             <p className="mt-6 max-w-[360px] leading-[1.7] text-mist-300">{site.description}</p>
             <div className="mt-7 flex items-center gap-4">
@@ -55,9 +55,11 @@ export function Footer() {
           <div>
             <h2 className={headingClass}>Office</h2>
             <address className="text-[15px] leading-[1.8] text-mist-300 not-italic">
-              {site.street}
-              <br />
-              {site.locality}
+              <a href={site.mapHref} target="_blank" rel="noopener noreferrer" className="hover:text-ember-500">
+                {site.street}
+                <br />
+                {site.locality}
+              </a>
               <br />
               <br />
               <span className="xl:whitespace-nowrap">{site.hours}</span>
@@ -85,15 +87,16 @@ export function Footer() {
 
         <div className="mt-[clamp(40px,5vw,64px)] flex flex-col gap-4 border-t border-white/10 py-8 text-sm text-mist-400 lg:flex-row lg:items-center lg:justify-between">
           <div>© 2026 Homestead District. All rights reserved.</div>
-          <ul className="flex flex-wrap items-center gap-x-3 gap-y-2" aria-label="Legal">
+          <ul className="flex flex-wrap items-center gap-x-0 gap-y-2" aria-label="Legal">
             {legalLinks.map((link, index) => (
-              <li key={link.href} className="flex items-center gap-3">
+              <li key={link.href} className="flex items-center">
                 {index > 0 ? (
-                  <span aria-hidden="true" className="text-white/25">
-                    |
-                  </span>
+                  <span className="mx-3 inline-block h-3 w-px bg-white/30" aria-hidden="true" />
                 ) : null}
-                <Link href={link.href} className="hover:text-ember-500">
+                <Link
+                  href={link.href}
+                  className="text-mist-400 underline underline-offset-4 transition-colors hover:text-ember-500"
+                >
                   {link.label}
                 </Link>
               </li>
