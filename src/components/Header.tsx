@@ -193,7 +193,7 @@ export function Header() {
               );
             })}
             <li className="flex items-center">
-              <Link href="/contact" className={buttonClass("primary", "md", "min-h-12 px-5 text-xs")}>
+              <Link href="/contact" className={buttonClass("primary", "md", "min-h-12 px-5 !text-[15px]")}>
                 Apply Now
               </Link>
             </li>
@@ -274,7 +274,7 @@ export function Header() {
               );
             })}
           </ul>
-          <Link href="/contact" onClick={closeAll} className={buttonClass("primary", "md", "mt-6 w-full")}>
+          <Link href="/contact" onClick={closeAll} className={buttonClass("primary", "md", "mt-6 w-full !text-[15px]")}>
             Apply Now
           </Link>
           <div className="mt-6 flex flex-col gap-3 text-[15px] text-mist-100">

@@ -29,7 +29,7 @@ export default async function BlogPostPage({ params }: Props) {
   const post = getPost(slug);
   if (!post) notFound();
 
-  const more = posts.filter((item) => item.slug !== post.slug).slice(0, 4);
+  const more = posts.filter((item) => item.slug !== post.slug);
 
   return (
     <>

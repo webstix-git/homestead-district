@@ -120,9 +120,13 @@ export default function HomePage() {
                 Income tied to your hours
               </div>
             </div>
-            <div className="flex flex-col justify-center gap-2 bg-ember-500 p-[clamp(28px,3.5vw,44px)] text-navy-900">
-              <div className="font-heading text-[11px] font-bold tracking-[0.18em] uppercase">Your Own Agency</div>
-              <div className="font-heading text-[19px] leading-[1.35] font-bold">Growth you build over time</div>
+            <div className="flex flex-col justify-center gap-2 bg-ember-500 p-[clamp(28px,3.5vw,44px)] text-white">
+              <div className="font-heading text-[11px] font-bold tracking-[0.18em] uppercase [text-shadow:2px_1px_0_rgba(0,0,0,0.45)]">
+                Your Own Agency
+              </div>
+              <div className="font-heading text-[19px] leading-[1.35] font-bold [text-shadow:2px_1px_0_rgba(0,0,0,0.45)]">
+                Growth you build over time
+              </div>
             </div>
           </div>
 
@@ -131,11 +135,11 @@ export default function HomePage() {
               <div className="absolute right-0 bottom-0 h-[60%] w-[60%] bg-ember-500" />
               <div className="relative h-full min-h-[496px]">
                 <Image
-                  src="/images/why-ownership.jpg"
-                  alt="Insurance agent reviewing a home insurance policy with clients in an agency office"
+                  src="/images/build-team-v4.jpg"
+                  alt="Team collaborating around a whiteboard in a modern office"
                   fill
                   sizes="(min-width: 1024px) 560px, 90vw"
-                  className="object-cover"
+                  className="object-cover object-center"
                 />
               </div>
               <div className="absolute bottom-6 left-0 bg-navy-900 px-[22px] py-[18px] font-heading text-[11px] font-bold tracking-[0.18em] text-white uppercase">
@@ -234,13 +238,13 @@ export default function HomePage() {
         <div className="container-page relative grid items-center gap-[clamp(48px,7vw,104px)] lg:grid-cols-2">
           <div className="relative pb-10">
             <div className="pointer-events-none absolute -top-5 -left-5 z-[2] size-[45%] border-t-[3px] border-l-[3px] border-ember-500" />
-            <div className="relative aspect-[4/5] w-full">
+            <div className="relative aspect-[3/4] w-full">
               <Image
-                src="/images/bg-statement.jpg"
-                alt="Garach Smith mentoring an agency owner"
+                src="/images/brand-mentorship-v4.jpg"
+                alt="Professionals mentoring and collaborating in a bright office"
                 fill
                 sizes="(min-width: 1024px) 560px, 90vw"
-                className="object-cover"
+                className="object-cover object-center"
               />
             </div>
             <div className="absolute right-0 bottom-0 z-[2] max-w-[260px] bg-[#ebac89] px-[30px] py-[26px] text-navy-900 shadow-[0_24px_48px_rgba(0,0,0,0.35)] sm:-right-6">
@@ -268,7 +272,7 @@ export default function HomePage() {
               <BulletList title="From Homestead District" items={brandFromDistrict} />
             </div>
             <div className="flex flex-wrap items-center gap-3.5">
-              <Button href="/contact" arrow>
+              <Button href="/contact" arrow className="!text-[15px]">
                 Apply Now
               </Button>
               <Button href="/meet-garach" variant="outline">
@@ -281,7 +285,7 @@ export default function HomePage() {
 
       {/* Path to ownership (no watermark) */}
       <section id="path" className="section-y relative overflow-hidden bg-navy-900 text-white">
-        <Image src="/images/bg-steps.jpg" alt="" fill sizes="100vw" className="object-cover" />
+        <Image src="/images/path-handshake-v3.jpg" alt="" fill sizes="100vw" className="object-cover object-center" />
         <div className="absolute inset-0 z-[1] bg-[linear-gradient(100deg,rgba(17,25,41,0.97)_0%,rgba(17,25,41,0.9)_50%,rgba(17,25,41,0.78)_100%)]" />
         <div className="container-page relative z-[2]">
           <Eyebrow tone="light">The Path to Ownership</Eyebrow>
@@ -312,8 +316,8 @@ export default function HomePage() {
           </div>
           <div>
             <Eyebrow>Meet Your District Manager</Eyebrow>
-            <h2 className="h-display mb-7">I&apos;ve Been in Your Seat.</h2>
-            <p className="mb-6 text-[clamp(19px,1.6vw,23px)] leading-[1.55] font-medium">
+            <h2 className="h-display mb-7">Leadership Built From Ownership Experience.</h2>
+            <p className="mb-6 !text-[25px] leading-[1.55] font-medium">
               &ldquo;I have helped many people build and scale an insurance agency, and I am excited about the possibility of
               working with you.&rdquo;
             </p>
@@ -356,7 +360,7 @@ export default function HomePage() {
 
       {/* Testimonials */}
       <section id="testimonials" className="section-y relative overflow-hidden bg-navy-900 text-white">
-        <Image src="/images/bg-home-testimonials.jpg" alt="" fill sizes="100vw" className="object-cover" />
+        <Image src="/images/bg-home-testimonials-v3.jpg" alt="" fill sizes="100vw" className="object-cover object-center" />
         <div className="absolute inset-0 z-[1] bg-[linear-gradient(180deg,rgba(17,25,41,0.9)_0%,rgba(17,25,41,0.97)_100%)]" />
         <div
           aria-hidden="true"
@@ -380,13 +384,13 @@ export default function HomePage() {
                   <blockquote className="flex-1 text-[17px] leading-[1.7] text-mist-100">{t.short}</blockquote>
                   <figcaption className="flex items-center gap-4 border-t border-white/10 pt-6">
                     <div className="relative size-14 shrink-0 rounded-full border-2 border-ember-500 p-[3px]">
-                      <div className="relative size-full overflow-hidden rounded-full bg-[#d9dde3]">
+                      <div className="relative size-full overflow-hidden rounded-full bg-[#123a8a]">
                         <Image
                           src={t.img}
                           alt={t.name}
                           fill
                           sizes="56px"
-                          className="scale-125 object-cover object-center"
+                          className="scale-[1.45] object-cover object-[center_22%] -translate-y-1"
                         />
                       </div>
                     </div>

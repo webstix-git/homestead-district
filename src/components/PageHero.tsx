@@ -12,8 +12,8 @@ type PageHeroProps = {
   /** Optional second supporting line under the description. */
   description?: ReactNode;
   image?: string;
-  /** Hide the monogram watermark. */
-  noWatermark?: boolean;
+  /** Extra classes for the background Image (e.g. object-position). */
+  imageClassName?: string;
   children?: ReactNode;
   aside?: ReactNode;
   /** Shown directly under the hero. Defaults to Home / eyebrow. */
@@ -73,7 +73,7 @@ export function PageHero({
   title,
   description,
   image,
-  noWatermark,
+  imageClassName,
   children,
   aside,
   breadcrumb,
@@ -94,13 +94,19 @@ export function PageHero({
       >
         {image ? (
           <>
-            <Image src={image} alt="" fill priority sizes="100vw" className="object-cover" />
+            <Image
+              src={image}
+              alt=""
+              fill
+              priority
+              sizes="100vw"
+              className={`object-cover ${imageClassName ?? ""}`}
+            />
             <div className="absolute inset-0 z-[1] bg-[linear-gradient(100deg,rgba(17,25,41,0.97)_0%,rgba(17,25,41,0.88)_50%,rgba(17,25,41,0.6)_100%)]" />
           </>
         ) : (
           <div className="pointer-events-none absolute inset-0 [background-image:linear-gradient(rgba(255,255,255,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.035)_1px,transparent_1px)] [background-size:80px_80px] [mask-image:radial-gradient(ellipse_at_70%_30%,#000_0%,transparent_75%)]" />
         )}
-        {noWatermark ? null : <Watermark className="-right-16 -bottom-40 w-[520px] opacity-[0.06]" />}
         <div className={`container-page relative z-[2] w-full ${tall ? "" : "py-6"}`}>
           <div className={aside ? "grid items-center gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:gap-16" : undefined}>
             <div>

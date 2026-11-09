@@ -119,7 +119,7 @@ export const pathways = [
   {
     num: "1",
     title: "Direct Agency Ownership",
-    image: "/images/direct_agency_ownership.jpg",
+    image: "/images/direct-agency-ownership-v3.jpg",
     body: "This path is designed for experienced professionals who meet eligibility and capital requirements and are prepared to step directly into agency ownership.",
     rows: [
       ["Who It's For", "Experienced professionals"],
@@ -134,7 +134,7 @@ export const pathways = [
   {
     num: "2",
     title: "The Protégé Program",
-    image: "/images/the_prot_g_program.jpg",
+    image: "/images/protege-program-v3.jpg",
     body: "Perfect for early-career professionals focused on learning and mentorship while building a sales foundation.",
     rows: [
       ["Who It's For", "Emerging talent"],
@@ -146,7 +146,7 @@ export const pathways = [
   {
     num: "3",
     title: "Associate Path",
-    image: "/images/associate_path.jpg",
+    image: "/images/associate-path-v3.jpg",
     body: "Designed for experienced leaders ready to focus on business ownership, team growth, and rapid scaling.",
     rows: [
       ["Who It's For", "Established leaders"],
@@ -165,10 +165,22 @@ export const opportunityStats = [
 ];
 
 export const agentGets = [
-  "Expert training and professional development",
-  "Direct mentorship from industry leaders",
-  "Strategic operational and growth support",
-  "Efficient technology and systems, plus support to start your agency with confidence",
+  {
+    text: "Expert training and professional development",
+    icon: "/images/icons/training.png",
+  },
+  {
+    text: "Direct mentorship from industry leaders",
+    icon: "/images/icons/mentorship.png",
+  },
+  {
+    text: "Strategic operational and growth support",
+    icon: "/images/icons/growth.png",
+  },
+  {
+    text: "Efficient technology and systems, plus support to start your agency with confidence",
+    icon: "/images/icons/technology.png",
+  },
 ];
 
 export const approach = [
@@ -194,10 +206,22 @@ export const aboutStats = [
 ];
 
 export const frameworkPoints = [
-  "Develop a loyal, local client base",
-  "Generate sustainable recurring revenue",
-  "Master efficient business tools",
-  "Build a scalable career path",
+  {
+    text: "Develop a loyal, local client base",
+    icon: "/images/icons/client-base.png",
+  },
+  {
+    text: "Generate sustainable recurring revenue",
+    icon: "/images/icons/revenue.png",
+  },
+  {
+    text: "Master efficient business tools",
+    icon: "/images/icons/business-tools.png",
+  },
+  {
+    text: "Build a scalable career path",
+    icon: "/images/icons/career-path.png",
+  },
 ];
 
 export const regions = [
@@ -217,6 +241,7 @@ export const testimonials = [
     role: "Agency Owner, Joplin, Missouri",
     img: "/images/phillip.png",
     highlight: "The support and training I needed to succeed as an agent and business owner.",
+    emphasis: "I have been given the support and training that I needed",
     short:
       "I have been given the support and training that I needed from my district office to be a successful insurance agent as well as a successful business owner.",
     quote:
@@ -227,6 +252,8 @@ export const testimonials = [
     role: "Agency Owner, Joplin, Missouri",
     img: "/images/robert.png",
     highlight: "After 15 years, I would make the same decision again.",
+    emphasis:
+      "Farmers provided the training, technology, and support that allowed me to build a business that has grown year after year.",
     short:
       "After 15 years as a Farmers Agency owner, I can honestly say I would make the same decision again.",
     quote:
@@ -237,6 +264,8 @@ export const testimonials = [
     role: "Agency Owner, Forsyth, Missouri",
     img: "/images/andrew.png",
     highlight: "That moment changed my life.",
+    emphasis:
+      "This career path truly encapsulates one of the most differentiating words in our country; opportunity!",
     short:
       "About thirteen years ago a recruiter approached me in the parking lot, regarding working for Farmers Insurance. I didn't know it, but that moment changed my life.",
     quote:

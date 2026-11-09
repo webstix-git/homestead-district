@@ -102,6 +102,7 @@ export default function PrivacyPolicyPage() {
   return (
     <>
       <PageHero
+        image="/images/bg-legal-v2.jpg"
         eyebrow="Privacy Policy"
         title="How we collect, use, and protect the information you share with us."
         description="Last Updated: August 19, 2026"

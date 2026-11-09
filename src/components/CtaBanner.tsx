@@ -14,8 +14,8 @@ export function CtaBanner() {
       />
       <div className="container-page relative flex flex-col gap-10 lg:flex-row lg:items-center lg:justify-between lg:gap-16">
         <div className="max-w-[720px]">
-          <Eyebrow className="text-white/80!">Ready When You Are</Eyebrow>
-          <h2 className="h-display text-white [text-shadow:2px_2px_0_rgba(0,0,0,0.45)]">
+          <Eyebrow className="text-white!">Ready When You Are</Eyebrow>
+          <h2 className="h-display text-white [text-shadow:2px_1px_0_rgba(0,0,0,0.45)]">
             Take the First Step Toward Owning Your Agency.
           </h2>
         </div>

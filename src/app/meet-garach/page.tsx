@@ -15,7 +15,8 @@ export default function MeetGarachPage() {
   return (
     <>
       <PageHero
-        image="/images/bg-garach.jpg"
+        image="/images/bg-garach-v2.jpg"
+        imageClassName="object-[center_62%]"
         eyebrow="Meet Garach"
         title="District Manager, mentor, and former Farmers agency owner — leading Homestead District from Springfield."
         breadcrumb={[
@@ -60,11 +61,11 @@ export default function MeetGarachPage() {
           <div aria-hidden="true" className="h-12 font-heading text-[96px] leading-[0.6] font-bold text-ember-500">
             &ldquo;
           </div>
-          <p className="mb-7 text-[clamp(21px,2.2vw,28px)] leading-[1.5] font-medium text-balance">
+          <p className="mb-7 !text-[25px] leading-[1.5] font-medium text-balance">
             I have helped many people build and scale an insurance agency, and I am excited about the possibility of
             working with you.
           </p>
-          <div className="font-heading text-[30px] font-bold">
+          <div className="font-heading text-[25px] font-bold">
             Garach Smith <span className="font-medium text-ink-soft">&nbsp;/&nbsp; District Manager</span>
           </div>
         </div>

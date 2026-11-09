@@ -41,7 +41,7 @@ export default function TeamMembersPage() {
   return (
     <>
       <PageHero
-        image="/images/bg-team.jpg"
+        image="/images/bg-team-v6.jpg"
         eyebrow="Team Members"
         title="Meet the Team"
       />

@@ -1,13 +1,10 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { Handshake, LineChart, Users, Wrench } from "lucide-react";
 import { CtaBanner } from "@/components/CtaBanner";
 import { PageHero, Watermark } from "@/components/PageHero";
 import { Accent, Button, Eyebrow } from "@/components/ui";
 import { aboutStats, frameworkPoints, regions } from "@/lib/content";
 import { site } from "@/lib/site";
-
-const frameworkIcons = [Users, LineChart, Wrench, Handshake] as const;
 
 export const metadata: Metadata = {
   title: "About the District",
@@ -19,7 +16,7 @@ export default function AboutPage() {
   return (
     <>
       <PageHero
-        image="/images/bg-about.jpg"
+        image="/images/bg-about-v2.jpg"
         eyebrow="About the District"
         title="Sixteen years of helping people open and grow Farmers Insurance agencies."
       />
@@ -54,11 +51,11 @@ export default function AboutPage() {
             <div className="absolute right-0 bottom-0 h-[60%] w-[60%] bg-ember-500" />
             <div className="relative aspect-[4/3] w-full">
               <Image
-                src="/images/about-intro.jpg"
-                alt="Garach Smith talking with a candidate in the Springfield office"
+                src="/images/about-intro-v2.jpg"
+                alt="Professionals shaking hands across a desk in a modern office"
                 fill
                 sizes="(min-width: 1024px) 560px, 90vw"
-                className="object-cover"
+                className="object-cover object-center"
               />
             </div>
           </div>
@@ -109,20 +106,23 @@ export default function AboutPage() {
               We Provide the Framework to Help You
             </h3>
             <ul className="flex flex-col gap-3">
-              {frameworkPoints.map((point, index) => {
-                const Icon = frameworkIcons[index] ?? Users;
-                return (
-                  <li
-                    key={point}
-                    className="flex items-center gap-[18px] border-l-4 border-ember-500 bg-white px-[22px] py-[18px] shadow-[0_8px_24px_rgba(17,25,41,0.06)]"
-                  >
-                    <span className="grid size-9 shrink-0 place-items-center rounded-full bg-ember-500 text-navy-900">
-                      <Icon className="size-4" strokeWidth={2.25} aria-hidden="true" />
-                    </span>
-                    <span className="font-heading text-[17px] leading-[1.4] font-bold">{point}</span>
-                  </li>
-                );
-              })}
+              {frameworkPoints.map((point) => (
+                <li
+                  key={point.text}
+                  className="flex items-center gap-[18px] border-l-4 border-ember-500 bg-white px-[22px] py-[18px] shadow-[0_8px_24px_rgba(17,25,41,0.06)]"
+                >
+                  <span className="relative size-10 shrink-0">
+                    <Image
+                      src={point.icon}
+                      alt=""
+                      fill
+                      sizes="40px"
+                      className="object-contain"
+                    />
+                  </span>
+                  <span className="font-heading text-[17px] leading-[1.4] font-bold">{point.text}</span>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
@@ -135,11 +135,11 @@ export default function AboutPage() {
             <div className="absolute bottom-0 left-0 h-[55%] w-[55%] bg-ember-500" />
             <div className="relative aspect-[4/3] w-full">
               <Image
-                src="/images/bg-statement.jpg"
-                alt="Hands-on training with a district mentor"
+                src="/images/about-training-v2.jpg"
+                alt="Presenter leading a professional training session"
                 fill
                 sizes="(min-width: 1024px) 560px, 90vw"
-                className="object-cover"
+                className="object-cover object-center"
               />
             </div>
           </div>
@@ -202,7 +202,7 @@ export default function AboutPage() {
       <section className="section-y">
         <div className="container-page grid items-center gap-[clamp(40px,6vw,96px)] lg:grid-cols-[0.8fr_1.2fr]">
           <div className="relative">
-            <div className="pointer-events-none absolute top-6 -right-6 -bottom-6 left-6 border border-ember-500" />
+            <div className="pointer-events-none absolute top-6 -right-6 -bottom-6 left-6 border-[3px] border-ember-500" />
             <div className="relative aspect-[4/5] w-full max-w-[460px]">
               <Image
                 src="/images/garach-hero.jpg"

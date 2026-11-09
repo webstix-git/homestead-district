@@ -16,6 +16,7 @@ export default function AiPolicyPage() {
   return (
     <>
       <PageHero
+        image="/images/bg-legal-v2.jpg"
         eyebrow="AI Policy"
         title="People make the decisions here."
         description="Software can help us write. It does not decide who becomes an agency owner or what happens to your information."

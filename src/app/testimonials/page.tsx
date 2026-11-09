@@ -14,7 +14,7 @@ export default function TestimonialsPage() {
   return (
     <>
       <PageHero
-        image="/images/bg-testimonials.jpg"
+        image="/images/bg-testimonials-v3.jpg"
         eyebrow="Agent Testimonials"
         title="In their own words, from Missouri agency owners."
       />
@@ -27,13 +27,13 @@ export default function TestimonialsPage() {
                 <figure className="grid gap-8 border-t-[3px] border-ember-500 bg-white px-9 py-10 shadow-[0_8px_24px_rgba(17,25,41,0.06)] md:grid-cols-[auto_1fr] md:items-start md:gap-10">
                   <figcaption className="flex shrink-0 items-center gap-4 md:w-[240px] md:flex-col md:items-start">
                     <div className="relative size-20 shrink-0 rounded-full border-2 border-ember-500 p-[3px]">
-                      <div className="relative size-full overflow-hidden rounded-full bg-[#d9dde3]">
+                      <div className="relative size-full overflow-hidden rounded-full bg-[#123a8a]">
                         <Image
                           src={t.img}
                           alt={t.name}
                           fill
                           sizes="80px"
-                          className="scale-125 object-cover object-center"
+                          className="scale-[1.45] object-cover object-[center_22%] -translate-y-1"
                         />
                       </div>
                     </div>
@@ -42,10 +42,11 @@ export default function TestimonialsPage() {
                       <div className="text-sm text-ink-soft">{t.role}</div>
                     </div>
                   </figcaption>
-                  <blockquote>
-                    <h3 className="text-[clamp(20px,2.2vw,28px)] leading-[1.35] text-navy-900">
-                      &ldquo;{t.quote}&rdquo;
+                  <blockquote className="flex flex-col gap-4">
+                    <h3 className="text-[clamp(20px,2.2vw,28px)] leading-[1.3] text-navy-900">
+                      {t.emphasis}
                     </h3>
+                    <p className="leading-[1.75] text-ink-muted">&ldquo;{t.quote}&rdquo;</p>
                   </blockquote>
                 </figure>
               </li>

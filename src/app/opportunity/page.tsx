@@ -1,12 +1,9 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { GraduationCap, Handshake, LineChart, Wrench } from "lucide-react";
 import { CtaBanner } from "@/components/CtaBanner";
 import { Breadcrumb, PageHero, Watermark } from "@/components/PageHero";
 import { Accent, Button, Eyebrow, SectionHead } from "@/components/ui";
 import { agentGets, opportunityStats, pathways, steps, testimonials } from "@/lib/content";
-
-const agentGetIcons = [GraduationCap, Handshake, LineChart, Wrench] as const;
 
 export const metadata: Metadata = {
   title: "Agency Ownership Opportunity",
@@ -20,7 +17,7 @@ export default function OpportunityPage() {
   return (
     <>
       <PageHero
-        image="/images/bg-opportunity.jpg"
+        image="/images/bg-opportunity-v3.jpg"
         eyebrow="Agency Ownership Opportunity"
         title={
           <>
@@ -47,7 +44,7 @@ export default function OpportunityPage() {
               <dd className="order-0 font-heading text-[30px] leading-none font-bold tracking-[-0.02em] text-ember-500">
                 {stat.big}
               </dd>
-              <dt className="order-1 max-w-[200px] text-sm leading-snug text-mist-300">{stat.small}</dt>
+              <dt className="order-1 max-w-[200px] text-sm leading-snug text-white">{stat.small}</dt>
             </div>
           ))}
         </dl>
@@ -67,7 +64,7 @@ export default function OpportunityPage() {
             <div className="absolute bottom-0 left-0 h-[60%] w-[55%] bg-ember-500" />
             <div className="relative aspect-[4/3] w-full">
               <Image
-                src="/images/opp-intro.jpg"
+                src="/images/opp-intro-v3.jpg"
                 alt="An insurance agent meeting with clients in an agency office"
                 fill
                 sizes="(min-width: 1024px) 560px, 90vw"
@@ -154,7 +151,7 @@ export default function OpportunityPage() {
 
       {/* Quote */}
       <section className="relative flex min-h-[clamp(420px,46vw,560px)] items-center overflow-hidden bg-navy-900 text-white">
-        <Image src="/images/opp-quote.jpg" alt="" fill sizes="100vw" className="object-cover" />
+        <Image src="/images/opp-quote-v3.jpg" alt="" fill sizes="100vw" className="object-cover object-center" />
         <div className="absolute inset-0 z-[1] bg-[linear-gradient(90deg,rgba(17,25,41,0.96)_0%,rgba(17,25,41,0.85)_55%,rgba(17,25,41,0.55)_100%)]" />
         <figure className="container-page relative z-[2] py-[clamp(64px,8vw,104px)]">
           <div aria-hidden="true" className="h-11 font-heading text-[96px] leading-[0.6] font-bold text-ember-500">
@@ -166,13 +163,13 @@ export default function OpportunityPage() {
           </blockquote>
           <figcaption className="flex items-center gap-4">
             <div className="relative size-14 shrink-0 rounded-full border-2 border-ember-500 p-[3px]">
-              <div className="relative size-full overflow-hidden rounded-full bg-[#d9dde3]">
+              <div className="relative size-full overflow-hidden rounded-full bg-[#123a8a]">
                 <Image
                   src={robert.img}
                   alt={robert.name}
                   fill
                   sizes="56px"
-                  className="scale-125 object-cover object-center"
+                  className="scale-[1.45] object-cover object-[center_22%] -translate-y-1"
                 />
               </div>
             </div>
@@ -197,7 +194,7 @@ export default function OpportunityPage() {
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             <div className="relative flex min-h-[420px] items-end overflow-hidden text-white sm:col-span-2 lg:row-span-2">
               <Image
-                src="/images/opp-step1.jpg"
+                src="/images/opp-step1-v3.jpg"
                 alt="A candidate meeting with Garach Smith to talk about the application"
                 fill
                 sizes="(min-width: 1024px) 620px, 90vw"
@@ -210,7 +207,7 @@ export default function OpportunityPage() {
               <div className="relative flex max-w-[560px] flex-col gap-3.5 p-[clamp(32px,4vw,52px)]">
                 <div className="flex items-center gap-3.5">
                   <span className="font-heading text-[72px] leading-[0.9] font-light text-ember-500">1</span>
-                  <span className="bg-ember-500 px-2.5 py-1.5 font-heading text-[11px] font-bold tracking-[0.18em] text-white uppercase [text-shadow:1px_1px_0_rgba(0,0,0,0.35)]">
+                  <span className="bg-ember-500 px-2.5 py-1.5 font-heading text-[11px] font-bold tracking-[0.18em] text-white uppercase [text-shadow:1px_0_0_rgba(0,0,0,0.35)]">
                     Where It Starts
                   </span>
                 </div>
@@ -288,18 +285,23 @@ export default function OpportunityPage() {
               What Our Agents Get
             </div>
             <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {agentGets.map((item, index) => {
-                const Icon = agentGetIcons[index] ?? GraduationCap;
-                return (
-                  <li
-                    key={item}
-                    className="flex flex-col gap-5 border border-white/15 px-7 py-8 transition-colors hover:border-ember-500"
-                  >
-                    <Icon className="size-12 text-ember-500" strokeWidth={1.5} aria-hidden="true" />
-                    <div className="font-heading text-[17px] leading-[1.4] font-bold">{item}</div>
-                  </li>
-                );
-              })}
+              {agentGets.map((item) => (
+                <li
+                  key={item.text}
+                  className="flex flex-col gap-5 border border-white/15 px-7 py-8 transition-colors hover:border-ember-500"
+                >
+                  <div className="relative size-12">
+                    <Image
+                      src={item.icon}
+                      alt=""
+                      fill
+                      sizes="48px"
+                      className="object-contain object-left"
+                    />
+                  </div>
+                  <div className="font-heading text-[17px] leading-[1.4] font-bold">{item.text}</div>
+                </li>
+              ))}
             </ul>
           </div>
         </div>

@@ -9,13 +9,14 @@ import { posts } from "@/lib/posts";
 export const metadata: Metadata = {
   title: "Blog & Resources",
   description:
-    "Articles for future agency owners: ownership, sales habits, hiring, mentorship, and building an insurance business under a national brand.",
+    "Practical articles on starting a business, insurance sales, and managing a team for people considering agency ownership.",
 };
 
 export default function BlogPage() {
   return (
     <>
       <PageHero
+        image="/images/bg-blog-v2.jpg"
         eyebrow="Blog & Resources"
         title="Practical reading for people considering agency ownership."
       />

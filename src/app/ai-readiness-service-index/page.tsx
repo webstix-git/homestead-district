@@ -29,6 +29,7 @@ export default function AiReadinessPage() {
   return (
     <>
       <PageHero
+        image="/images/bg-legal-v2.jpg"
         eyebrow="AI Readiness Service Index"
         title="Who we are and what we do."
         description="A plain index of the district, the opportunity, and how to reach us, in one place."

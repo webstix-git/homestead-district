@@ -54,6 +54,7 @@ export default function SiteMapPage() {
   return (
     <>
       <PageHero
+        image="/images/bg-legal-v2.jpg"
         eyebrow="Site Map"
         title="Every page on our site in one place."
         description="Find your way around Homestead District."

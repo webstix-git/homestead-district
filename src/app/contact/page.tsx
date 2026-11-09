@@ -40,7 +40,7 @@ export default function ContactPage() {
   return (
     <>
       <PageHero
-        image="/images/bg-faq.jpg"
+        image="/images/bg-contact-v2.jpg"
         eyebrow="Contact"
         title="Apply to Own a Farmers Agency."
         description="Send us a few details and Garach Smith will contact you to set up a time to talk. Not ready to apply yet? Call the office and ask anything."

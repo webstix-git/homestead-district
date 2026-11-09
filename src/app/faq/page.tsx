@@ -107,7 +107,7 @@ const faqItems: { q: string; a: ReactNode }[] = [
 export default function FaqPage() {
   return (
     <>
-      <PageHero image="/images/bg-faq.jpg" eyebrow="FAQ" title="Frequently Asked Questions" />
+      <PageHero image="/images/bg-faq-v3.jpg" eyebrow="FAQ" title="Frequently Asked Questions" />
 
       <section className="section-y-sm">
         <div className="container-page max-w-[920px]">
