@@ -29,9 +29,9 @@ export default function MeetGarachPage() {
       {/* Former hero content moved here as first section */}
       <section className="section-y">
         <div className="container-page grid items-center gap-[clamp(40px,6vw,96px)] lg:grid-cols-[0.9fr_1.1fr]">
-          <div className="relative mx-auto w-full max-w-[420px]">
+          <div className="relative mx-auto flex w-full max-w-[420px] items-center self-center">
             <div className="absolute inset-y-0 right-0 left-[12%] border-t-[3px] border-ember-500 bg-navy-800" />
-            <div className="relative ml-[12%] aspect-[4/5] w-[88%]">
+            <div className="relative ml-[12%] aspect-[4/5] w-[88%] overflow-hidden">
               <Image
                 src="/images/garach-hero.jpg"
                 alt="Garach Smith, District Manager"
@@ -73,9 +73,9 @@ export default function MeetGarachPage() {
 
       <section className="section-y">
         <div className="container-page grid items-center gap-[clamp(40px,6vw,96px)] lg:grid-cols-2">
-          <div className="relative pr-6 pb-6">
+          <div className="relative min-w-0 overflow-hidden pr-4 pb-4 sm:pr-6 sm:pb-6">
             <div className="absolute right-0 bottom-0 h-[60%] w-[60%] bg-ember-500" />
-            <div className="relative aspect-[3/2] w-full">
+            <div className="relative aspect-[3/2] w-full overflow-hidden">
               <Image
                 src="/images/garach-mentorship.jpg"
                 alt="Garach Smith networking with agency owners at a business event"
@@ -85,7 +85,7 @@ export default function MeetGarachPage() {
               />
             </div>
           </div>
-          <div>
+          <div className="min-w-0">
             <Eyebrow>Mentorship That Builds Owners</Eyebrow>
             <h2 className="h-display mb-7">
               Mentorship That <Accent>Builds Owners.</Accent>

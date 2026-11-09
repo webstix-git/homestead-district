@@ -24,7 +24,7 @@ export default function TestimonialsPage() {
           <ul className="flex flex-col gap-10">
             {testimonials.map((t) => (
               <li key={t.name}>
-                <figure className="grid gap-8 border-t-[3px] border-ember-500 bg-white px-9 py-10 shadow-[0_8px_24px_rgba(17,25,41,0.06)] md:grid-cols-[auto_1fr] md:items-start md:gap-10">
+                <figure className="grid gap-6 border-t-[3px] border-ember-500 bg-white px-5 py-8 shadow-[0_8px_24px_rgba(17,25,41,0.06)] sm:px-9 sm:py-10 md:grid-cols-[auto_1fr] md:items-start md:gap-10">
                   <figcaption className="flex shrink-0 items-center gap-4 md:w-[240px] md:flex-col md:items-start">
                     <div className="relative size-20 shrink-0 rounded-full border-2 border-ember-500 p-[3px]">
                       <div className="relative size-full overflow-hidden rounded-full bg-[#123a8a]">

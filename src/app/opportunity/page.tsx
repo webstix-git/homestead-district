@@ -59,10 +59,10 @@ export default function OpportunityPage() {
 
       {/* Intro */}
       <section className="section-y">
-        <div className="container-page flex flex-wrap items-center gap-[clamp(40px,6vw,96px)]">
-          <div className="relative min-w-0 flex-[1_1_420px] pb-8 pl-8">
-            <div className="absolute bottom-0 left-0 h-[60%] w-[55%] bg-ember-500" />
-            <div className="relative aspect-[4/3] w-full">
+        <div className="container-page grid items-center gap-[clamp(40px,6vw,96px)] lg:grid-cols-2">
+          <div className="relative min-w-0 pb-8 pl-0 sm:pl-8">
+            <div className="absolute bottom-0 left-0 hidden h-[60%] w-[55%] bg-ember-500 sm:block" />
+            <div className="relative aspect-[4/3] w-full overflow-hidden">
               <Image
                 src="/images/opp-intro-v3.jpg"
                 alt="An insurance agent meeting with clients in an agency office"
@@ -71,12 +71,12 @@ export default function OpportunityPage() {
                 className="object-cover"
               />
             </div>
-            <div className="absolute top-8 right-0 max-w-[220px] bg-navy-900 px-6 py-5 text-white shadow-[0_20px_40px_rgba(0,0,0,0.25)] sm:-right-3">
+            <div className="relative z-[1] mt-4 max-w-[280px] bg-navy-900 px-5 py-4 text-white shadow-[0_20px_40px_rgba(0,0,0,0.25)] sm:absolute sm:top-8 sm:right-0 sm:mt-0 sm:max-w-[220px] sm:px-6 sm:py-5">
               <div className="mb-1.5 font-heading text-[34px] leading-none font-bold text-ember-500">Yours</div>
               <div className="text-[15px] leading-normal text-mist-50">Your office, your team, your book of business.</div>
             </div>
           </div>
-          <div className="min-w-0 flex-[1_1_420px]">
+          <div className="min-w-0">
             <Eyebrow>The Opportunity</Eyebrow>
             <h2 className="h-display mb-7">
               This Is Not a Sales Job. <Accent>It Is a Business You Own.</Accent>
@@ -204,9 +204,9 @@ export default function OpportunityPage() {
               <div className="absolute top-6 right-6 z-[1] font-heading text-[11px] font-bold tracking-[0.18em] text-navy-900 uppercase">
                 Step 1/5
               </div>
-              <div className="relative flex max-w-[560px] flex-col gap-3.5 p-[clamp(32px,4vw,52px)]">
-                <div className="flex items-center gap-3.5">
-                  <span className="font-heading text-[72px] leading-[0.9] font-light text-ember-500">1</span>
+              <div className="relative flex max-w-[560px] flex-col gap-3.5 p-[clamp(24px,4vw,52px)]">
+                <div className="flex flex-wrap items-center gap-3.5">
+                  <span className="font-heading text-[56px] leading-[0.9] font-light text-ember-500 sm:text-[72px]">1</span>
                   <span className="bg-ember-500 px-2.5 py-1.5 font-heading text-[11px] font-bold tracking-[0.18em] text-white uppercase [text-shadow:1px_0_0_rgba(0,0,0,0.35)]">
                     Where It Starts
                   </span>
@@ -218,7 +218,7 @@ export default function OpportunityPage() {
             {steps.slice(1).map((step) => (
               <div
                 key={step.num}
-                className="flex flex-col gap-4 border-t-[3px] border-ember-500 bg-white p-8 shadow-[0_8px_24px_rgba(17,25,41,0.06)] transition-shadow hover:shadow-[0_14px_32px_rgba(17,25,41,0.12)]"
+                className="flex flex-col gap-4 border-t-[3px] border-ember-500 bg-white p-5 shadow-[0_8px_24px_rgba(17,25,41,0.06)] transition-shadow hover:shadow-[0_14px_32px_rgba(17,25,41,0.12)] sm:p-8"
               >
                 <div className="flex items-center justify-between">
                   <span className="font-heading text-5xl leading-none font-light text-ember-500">{step.num}</span>

@@ -26,7 +26,7 @@ const sizes: Record<ButtonSize, string> = {
 
 export function buttonClass(variant: ButtonVariant = "primary", size: ButtonSize = "md", extra?: string) {
   return cn(
-    "group/btn inline-flex items-center justify-center gap-3 rounded-[2px] border font-heading leading-none font-bold tracking-[0.12em] whitespace-nowrap uppercase transition-colors duration-200",
+    "group/btn inline-flex max-w-full items-center justify-center gap-3 rounded-[2px] border font-heading leading-none font-bold tracking-[0.12em] whitespace-nowrap uppercase transition-colors duration-200",
     variants[variant],
     sizes[size],
     extra,

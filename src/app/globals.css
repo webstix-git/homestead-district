@@ -61,8 +61,12 @@
     scroll-behavior: auto;
   }
 
+  html {
+    overflow-x: clip;
+  }
+
   body {
-    @apply bg-cream-100 font-sans text-navy-900 antialiased;
+    @apply overflow-x-clip bg-cream-100 font-sans text-navy-900 antialiased;
   }
 
   h1,
@@ -129,7 +133,7 @@ p {
 }
 
 @utility container-page {
-  @apply mx-auto w-full max-w-[1280px] px-4 xl:px-0;
+  @apply mx-auto w-full max-w-[1280px] px-4 md:px-6 xl:px-0;
 }
 
 @utility text-ember-shadow {

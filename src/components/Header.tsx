@@ -46,6 +46,19 @@ export function Header() {
     };
   }, []);
 
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileOpen]);
+
+  useEffect(() => {
+    setMobileOpen(false);
+    setMobileGroup(null);
+    setOpenMenu(null);
+  }, [pathname]);
+
   const closeAll = () => {
     setOpenMenu(null);
     setMobileOpen(false);
@@ -118,8 +131,8 @@ export function Header() {
             height={120}
             priority
             className={cn(
-              "h-[65px] w-auto transition-[height] duration-300",
-              scrolled && "h-11 min-[1100px]:h-[52px]",
+              "h-12 w-auto max-w-[min(240px,58vw)] transition-[height] duration-300 sm:h-[65px] sm:max-w-none",
+              scrolled && "h-10 sm:h-11 min-[1100px]:h-[52px]",
             )}
           />
         </Link>
@@ -200,7 +213,7 @@ export function Header() {
           </ul>
         </nav>
 
-        {/* Mobile toggle */}
+        {/* Mobile / tablet toggle */}
         <button
           type="button"
           className="inline-flex size-12 cursor-pointer items-center justify-center rounded-[2px] border border-white/30 text-white min-[1100px]:hidden"
@@ -213,84 +226,121 @@ export function Header() {
         </button>
       </div>
 
-      {/* Mobile menu */}
+      {/* Side drawer — clipped shell prevents off-canvas panel from expanding page width */}
       <div
-        id="mobile-menu"
         className={cn(
-          "overflow-y-auto border-t border-white/10 bg-navy-900 min-[1100px]:hidden",
-          mobileOpen ? "max-h-[calc(100dvh-84px)]" : "hidden",
+          "fixed inset-0 z-[60] overflow-hidden min-[1100px]:hidden",
+          mobileOpen ? "pointer-events-auto" : "pointer-events-none",
         )}
+        aria-hidden={!mobileOpen}
       >
-        <div className="container-page pt-3 pb-8">
-          <ul>
-            {navItems.map((item) => {
-              const active = isActive(item, pathname);
-              const rowClass = cn(
-                "flex w-full items-center justify-between border-b border-white/10 py-4 text-left font-heading text-sm font-semibold tracking-[0.1em] text-white uppercase",
-                active && "border-b-ember-500",
-              );
+        <button
+          type="button"
+          aria-label="Close menu"
+          tabIndex={mobileOpen ? 0 : -1}
+          className={cn(
+            "absolute inset-0 bg-navy-900/50 transition-opacity duration-300",
+            mobileOpen ? "opacity-100" : "opacity-0",
+          )}
+          onClick={closeAll}
+        />
 
-              if (!item.children) {
+        <div
+          id="mobile-menu"
+          inert={mobileOpen ? undefined : true}
+          className={cn(
+            "absolute top-0 right-0 flex h-full w-[min(100%,360px)] flex-col bg-navy-900 shadow-[-20px_0_48px_rgba(0,0,0,0.35)] transition-transform duration-300 ease-out",
+            mobileOpen ? "translate-x-0" : "translate-x-full",
+          )}
+        >
+          <div className="flex h-[84px] items-center justify-between border-b border-white/10 px-5">
+            <span className="font-heading text-sm font-bold tracking-[0.14em] text-white uppercase">Menu</span>
+            <button
+              type="button"
+              className="inline-flex size-11 cursor-pointer items-center justify-center rounded-[2px] border border-white/30 text-white"
+              aria-label="Close menu"
+              onClick={closeAll}
+            >
+              <X className="size-5" aria-hidden="true" />
+            </button>
+          </div>
+
+          <div className="flex-1 overflow-y-auto px-5 pt-3 pb-8">
+            <ul>
+              {navItems.map((item) => {
+                const active = isActive(item, pathname);
+                const rowClass = cn(
+                  "flex w-full items-center justify-between border-b border-white/10 py-4 text-left font-heading text-sm font-semibold tracking-[0.1em] text-white uppercase",
+                  active && "border-b-ember-500",
+                );
+
+                if (!item.children) {
+                  return (
+                    <li key={item.label}>
+                      <Link href={item.href!} onClick={closeAll} className={rowClass}>
+                        {item.label}
+                      </Link>
+                    </li>
+                  );
+                }
+
+                const expanded = mobileGroup === item.label;
                 return (
                   <li key={item.label}>
-                    <Link href={item.href!} onClick={closeAll} className={rowClass}>
+                    <button
+                      type="button"
+                      className={cn(rowClass, "cursor-pointer")}
+                      aria-expanded={expanded}
+                      onClick={() => setMobileGroup(expanded ? null : item.label)}
+                    >
                       {item.label}
-                    </Link>
+                      <ChevronDown
+                        className={cn("size-4 text-ember-500 transition-transform", expanded && "rotate-180")}
+                        aria-hidden="true"
+                      />
+                    </button>
+                    {expanded ? (
+                      <ul className="border-b border-white/10 py-2 pl-4">
+                        {item.children.map((child) => (
+                          <li key={child.href}>
+                            <Link
+                              href={child.href}
+                              onClick={closeAll}
+                              className="block py-3 font-heading text-[13px] font-semibold text-mist-100 hover:text-ember-500"
+                            >
+                              {child.label}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    ) : null}
                   </li>
                 );
-              }
-
-              const expanded = mobileGroup === item.label;
-              return (
-                <li key={item.label}>
-                  <button
-                    type="button"
-                    className={cn(rowClass, "cursor-pointer")}
-                    aria-expanded={expanded}
-                    onClick={() => setMobileGroup(expanded ? null : item.label)}
-                  >
-                    {item.label}
-                    <ChevronDown
-                      className={cn("size-4 text-ember-500 transition-transform", expanded && "rotate-180")}
-                      aria-hidden="true"
-                    />
-                  </button>
-                  {expanded ? (
-                    <ul className="border-b border-white/10 py-2 pl-4">
-                      {item.children.map((child) => (
-                        <li key={child.href}>
-                          <Link
-                            href={child.href}
-                            onClick={closeAll}
-                            className="block py-3 font-heading text-[13px] font-semibold text-mist-100 hover:text-ember-500"
-                          >
-                            {child.label}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  ) : null}
-                </li>
-              );
-            })}
-          </ul>
-          <Link href="/contact" onClick={closeAll} className={buttonClass("primary", "md", "mt-6 w-full !text-[15px]")}>
-            Apply Now
-          </Link>
-          <div className="mt-6 flex flex-col gap-3 text-[15px] text-mist-100">
-            <a href={site.phoneHref} className="inline-flex items-center gap-2">
-              <Phone className="size-4" aria-hidden="true" />
-              <span>{site.phone}</span>
-            </a>
-            <a href={site.emailHref} className="inline-flex items-center gap-2">
-              <Mail className="size-4" aria-hidden="true" />
-              <span>{site.email}</span>
-            </a>
-            <a href={site.mapHref} target="_blank" rel="noopener noreferrer" className="leading-[1.5] hover:text-ember-500">
-              {site.street}
-              <br />
-              {site.locality}
-            </a>
+              })}
+            </ul>
+            <Link href="/contact" onClick={closeAll} className={buttonClass("primary", "md", "mt-6 w-full !text-[15px]")}>
+              Apply Now
+            </Link>
+            <div className="mt-6 flex flex-col gap-3 text-[15px] text-mist-100">
+              <a href={site.phoneHref} className="inline-flex items-center gap-2">
+                <Phone className="size-4" aria-hidden="true" />
+                <span>{site.phone}</span>
+              </a>
+              <a href={site.emailHref} className="inline-flex items-center gap-2">
+                <Mail className="size-4" aria-hidden="true" />
+                <span>{site.email}</span>
+              </a>
+              <a
+                href={site.mapHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="leading-[1.5] hover:text-ember-500"
+              >
+                {site.street}
+                <br />
+                {site.locality}
+              </a>
+            </div>
           </div>
         </div>
       </div>

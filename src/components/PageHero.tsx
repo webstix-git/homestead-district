@@ -89,7 +89,7 @@ export function PageHero({
         className={
           tall
             ? "hero-pt relative overflow-hidden bg-navy-900 pb-[clamp(56px,7vw,104px)] text-white"
-            : "relative flex h-[400px] items-center overflow-hidden bg-navy-900 pt-[84px] text-white min-[1100px]:pt-[112px]"
+            : "relative flex min-h-[340px] items-center overflow-hidden bg-navy-900 pt-[84px] pb-8 text-white sm:min-h-[380px] md:h-[400px] md:min-h-0 md:pb-0 min-[1100px]:pt-[112px]"
         }
       >
         {image ? (

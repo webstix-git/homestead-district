@@ -23,7 +23,7 @@ export default function AboutPage() {
 
       <section className="section-y">
         <div className="container-page grid items-center gap-[clamp(40px,6vw,96px)] lg:grid-cols-2">
-          <div>
+          <div className="min-w-0">
             <Eyebrow>What Makes Us Different</Eyebrow>
             <h2 className="h-display mb-8">
               Real Opportunity, <Accent>Not Empty Promises.</Accent>
@@ -47,9 +47,9 @@ export default function AboutPage() {
               </p>
             </div>
           </div>
-          <div className="relative pr-6 pb-6">
+          <div className="relative min-w-0 overflow-hidden pr-4 pb-4 sm:pr-6 sm:pb-6">
             <div className="absolute right-0 bottom-0 h-[60%] w-[60%] bg-ember-500" />
-            <div className="relative aspect-[4/3] w-full">
+            <div className="relative aspect-[4/3] w-full overflow-hidden">
               <Image
                 src="/images/about-intro-v2.jpg"
                 alt="Professionals shaking hands across a desk in a modern office"
@@ -131,9 +131,9 @@ export default function AboutPage() {
       {/* Training */}
       <section className="section-y">
         <div className="container-page grid items-center gap-[clamp(40px,6vw,96px)] lg:grid-cols-2">
-          <div className="relative pb-6 pl-6">
+          <div className="relative min-w-0 overflow-hidden pb-4 pl-4 sm:pb-6 sm:pl-6">
             <div className="absolute bottom-0 left-0 h-[55%] w-[55%] bg-ember-500" />
-            <div className="relative aspect-[4/3] w-full">
+            <div className="relative aspect-[4/3] w-full overflow-hidden">
               <Image
                 src="/images/about-training-v2.jpg"
                 alt="Presenter leading a professional training session"
@@ -199,11 +199,11 @@ export default function AboutPage() {
       </section>
 
       {/* Leadership */}
-      <section className="section-y">
+      <section className="section-y overflow-x-clip">
         <div className="container-page grid items-center gap-[clamp(40px,6vw,96px)] lg:grid-cols-[0.8fr_1.2fr]">
-          <div className="relative">
-            <div className="pointer-events-none absolute top-6 -right-6 -bottom-6 left-6 border-[3px] border-ember-500" />
-            <div className="relative aspect-[4/5] w-full max-w-[460px]">
+          <div className="relative min-w-0 max-w-full pr-4 pb-4 sm:max-w-[460px] sm:pr-6 sm:pb-6">
+            <div className="pointer-events-none absolute top-4 right-0 bottom-0 left-4 border-[3px] border-ember-500 sm:top-6 sm:left-6" />
+            <div className="relative aspect-[4/5] w-full overflow-hidden">
               <Image
                 src="/images/garach-hero.jpg"
                 alt="Garach Smith, District Manager"
@@ -213,7 +213,7 @@ export default function AboutPage() {
               />
             </div>
           </div>
-          <div>
+          <div className="min-w-0 max-w-full">
             <Eyebrow>Leadership</Eyebrow>
             <p className="mb-6 text-[clamp(19px,1.6vw,23px)] leading-[1.55] font-medium">
               &ldquo;I get fulfillment from mentoring and coaching, so it was a natural fit for me to become a district
