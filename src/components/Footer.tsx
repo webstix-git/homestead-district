@@ -32,7 +32,7 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Homestead District on Facebook"
-                className="grid size-10 place-items-center rounded-full border border-white/25 text-white hover:border-ember-500 hover:bg-ember-500 hover:text-navy-900"
+                className="grid size-10 place-items-center rounded-[2px] border border-white/25 text-white hover:border-ember-500 hover:bg-ember-500 hover:text-navy-900"
               >
                 <FacebookIcon className="size-5" />
               </a>

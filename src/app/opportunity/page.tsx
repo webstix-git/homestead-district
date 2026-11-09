@@ -201,7 +201,7 @@ export default function OpportunityPage() {
                 className="object-cover"
               />
               <div className="absolute inset-0 bg-[linear-gradient(0deg,rgba(17,25,41,0.96)_0%,rgba(17,25,41,0.6)_50%,rgba(17,25,41,0.1)_100%)]" />
-              <div className="absolute top-6 right-6 z-[1] font-heading text-[11px] font-bold tracking-[0.18em] text-white uppercase">
+              <div className="absolute top-6 right-6 z-[1] font-heading text-[11px] font-bold tracking-[0.18em] text-navy-900 uppercase">
                 Step 1/5
               </div>
               <div className="relative flex max-w-[560px] flex-col gap-3.5 p-[clamp(32px,4vw,52px)]">
