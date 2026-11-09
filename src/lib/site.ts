@@ -2,7 +2,7 @@ export const site = {
   name: "Homestead District",
   legalName: "The Homestead District",
   manager: "Garach Smith",
-  phone: "(417) 844-7210",
+  phone: "417-844-7210",
   phoneHref: "tel:4178447210",
   email: "gsmith18@farmersagent.com",
   emailHref: "mailto:gsmith18@farmersagent.com",

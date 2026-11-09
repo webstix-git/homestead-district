@@ -41,6 +41,7 @@ export default async function BlogPostPage({ params }: Props) {
           { label: "Blog", href: "/blog" },
           { label: post.title },
         ]}
+        breadcrumbClassName="bg-white"
       />
 
       <div className="section-y-sm bg-white">

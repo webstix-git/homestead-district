@@ -104,8 +104,7 @@ export default function PrivacyPolicyPage() {
       <PageHero
         image="/images/bg-legal-v2.jpg"
         eyebrow="Privacy Policy"
-        title="How we collect, use, and protect the information you share with us."
-        description="Last Updated: August 19, 2026"
+        title="Last Updated: August 19, 2026"
       />
 
       <article className="section-y-sm">
@@ -115,7 +114,16 @@ export default function PrivacyPolicyPage() {
               The Homestead District (&ldquo;we,&rdquo; &ldquo;our,&rdquo; or &ldquo;us&rdquo;), located in Springfield,
               Missouri, is committed to protecting the privacy and security of our residents, businesses, and visitors. This
               Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our
-              website www.buildyourinsuranceagency.com, use our services, or interact with us.
+              website{" "}
+              <a
+                href={site.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-navy-900 underline underline-offset-4 hover:text-ember-600"
+              >
+                www.buildyourinsuranceagency.com
+              </a>
+              , use our services, or interact with us.
             </p>
             <p>
               Please read this Privacy Policy carefully. By accessing or using our services, you agree to the practices
