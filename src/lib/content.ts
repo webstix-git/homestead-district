@@ -1,7 +1,7 @@
 export const facts = [
   { big: "16", small: "Years in Business" },
   { big: "Farmers", small: "Insurance Branded Agencies" },
-  { big: "SW MO", small: "Springfield Metro & SE Kansas" },
+  { big: "SW MO", small: "Springfield Metro" },
 ];
 
 export const steps = [

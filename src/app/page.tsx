@@ -264,8 +264,8 @@ export default function HomePage() {
               </span>
             </h2>
             <p className="mb-11 max-w-[540px] leading-[1.7] text-mist-200">
-              Most new business owners have to choose between independence and support. As a Farmers agency owner in our
-              district, you get both.
+              Most new business owners have to choose between independence and support. As a Farmers Insurance Agency
+              owner in our district, you get both.
             </p>
             <div className="mb-11 grid gap-x-9 gap-y-5 sm:grid-cols-2">
               <BulletList title="From Farmers Insurance" items={brandFromFarmers} />
