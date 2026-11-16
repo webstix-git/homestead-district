@@ -218,13 +218,12 @@ export default function AboutPage() {
             <div className="pointer-events-none absolute top-4 right-0 bottom-0 left-4 border-[3px] border-ember-500 sm:top-6 sm:left-6" />
             <div className="relative aspect-[4/5] w-full overflow-hidden">
               <Image
-                src="/images/garach-hero-v2.jpg"
+                src="/images/garach-hero-v3.png"
                 alt="Garach Smith, District Manager"
                 fill
-                quality={100}
                 unoptimized
                 sizes="(min-width: 1024px) 460px, 90vw"
-                className="object-cover object-[center_20%] [image-rendering:high-quality]"
+                className="object-cover object-[center_20%]"
               />
             </div>
           </div>

@@ -23,7 +23,7 @@ export const metadata: Metadata = pageMeta({
   absoluteTitle: metaCopy.home.absoluteTitle,
   description: metaCopy.home.description,
   path: '/',
-  image: '/images/garach-hero-v2.jpg',
+  image: '/images/garach-hero-v3.jpg',
 });
 
 function BulletList({ title, items }: { title: string; items: string[] }) {
@@ -53,8 +53,9 @@ export default function HomePage() {
       {/* Hero */}
       <section className="relative overflow-x-clip overflow-hidden bg-navy-900 text-white">
         <Watermark className="-top-16 -right-28 w-[720px] opacity-[0.035]" />
-        <div className="pointer-events-none absolute inset-0 [background-image:linear-gradient(rgba(255,255,255,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.035)_1px,transparent_1px)] [background-size:80px_80px] [mask-image:radial-gradient(ellipse_at_70%_30%,#000_0%,transparent_75%)]" />
-        <div className="container-page hero-pt relative grid items-start gap-[clamp(40px,6vw,88px)] lg:grid-cols-2">
+        {/* Grid stays on the copy side only so it does not shimmer over the portrait */}
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-full max-w-[58%] [background-image:linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] [background-size:80px_80px] [mask-image:linear-gradient(90deg,#000_0%,#000_55%,transparent_100%)]" />
+        <div className="container-page hero-pt relative z-[1] grid items-start gap-[clamp(40px,6vw,88px)] lg:grid-cols-2">
           <div className="min-w-0 pb-[clamp(40px,6vw,96px)] lg:pt-2">
             <Eyebrow tone="light" className="mb-7">
               Agency Ownership Opportunity
@@ -82,18 +83,17 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="relative min-w-0 self-stretch">
-            <div className="absolute inset-y-0 right-0 left-[8%] border-t-[3px] border-ember-500 bg-gradient-to-b from-navy-800 to-navy-850 sm:left-[12%]" />
-            <div className="relative ml-[8%] aspect-[4/5] max-h-[560px] w-[92%] overflow-hidden sm:ml-[12%] sm:max-h-[640px] sm:w-[88%]">
+          <div className="relative z-[2] min-w-0 self-stretch">
+            <div className="absolute inset-y-0 right-0 left-[8%] border-t-[3px] border-ember-500 bg-navy-800 sm:left-[12%]" />
+            <div className="relative ml-[8%] aspect-[4/5] max-h-[560px] w-[92%] overflow-hidden bg-navy-800 sm:ml-[12%] sm:max-h-[640px] sm:w-[88%]">
               <Image
-                src="/images/garach-hero-v2.jpg"
+                src="/images/garach-hero-v3.png"
                 alt="Garach Smith, District Manager at Homestead District"
                 fill
                 priority
-                quality={100}
                 unoptimized
                 sizes="(min-width: 1024px) 560px, 90vw"
-                className="object-cover object-[center_15%] [image-rendering:high-quality]"
+                className="object-cover object-[center_15%]"
               />
             </div>
             <div className="absolute bottom-6 left-0 max-w-[min(290px,calc(100%-1rem))] bg-cream-100 px-5 py-4 text-navy-900 shadow-[0_24px_48px_rgba(0,0,0,0.35)] sm:bottom-10 sm:px-[26px] sm:py-[22px]">
@@ -325,13 +325,12 @@ export default function HomePage() {
             <div className="pointer-events-none absolute top-4 right-0 bottom-0 left-4 border-[3px] border-ember-500 sm:top-6 sm:left-6" />
             <div className="relative aspect-[4/5] w-full max-w-full overflow-hidden">
               <Image
-                src="/images/garach-hero-v2.jpg"
+                src="/images/garach-hero-v3.png"
                 alt="Garach Smith, District Manager"
                 fill
-                quality={100}
                 unoptimized
                 sizes="(min-width: 1024px) 560px, 90vw"
-                className="object-cover object-[center_20%] [image-rendering:high-quality]"
+                className="object-cover object-[center_20%]"
               />
             </div>
           </div>

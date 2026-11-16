@@ -265,7 +265,7 @@ export default function OpportunityPage() {
                 <div className="relative size-16 shrink-0 rounded-full border-2 border-ember-500 p-[3px]">
                   <div className="relative size-full overflow-hidden rounded-full bg-[#d9dde3]">
                     <Image
-                      src="/images/garach-hero-v2.jpg"
+                      src="/images/garach-hero-v3.jpg"
                       alt="Garach Smith"
                       fill
                       sizes="64px"
