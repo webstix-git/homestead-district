@@ -2,8 +2,8 @@ import Script from "next/script";
 import { GA_MEASUREMENT_ID, GTM_ID } from "@/lib/analytics";
 
 /**
- * Loads Google Tag Manager and/or GA4 when env IDs are present.
- * Set NEXT_PUBLIC_GTM_ID and/or NEXT_PUBLIC_GA_MEASUREMENT_ID in .env.local.
+ * Google tag (GTM) on every page via the root layout.
+ * Container: GTM-N5W9SZBX (override with NEXT_PUBLIC_GTM_ID if needed).
  */
 export function Analytics() {
   const hasGtm = Boolean(GTM_ID);
@@ -15,8 +15,11 @@ export function Analytics() {
     <>
       {hasGtm ? (
         <>
-          <Script id="gtm-bootstrap" strategy="afterInteractive">{`
+          <Script id="gtm-datalayer" strategy="afterInteractive">{`
             window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            window.gtag = gtag;
+            gtag("js", new Date());
             window.dataLayer.push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
           `}</Script>
           <Script

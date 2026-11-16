@@ -1,5 +1,7 @@
 export const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID?.trim() || "";
-export const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID?.trim() || "";
+/** Homestead GTM container — default so production still loads without a Vercel env var. */
+export const DEFAULT_GTM_ID = "GTM-N5W9SZBX";
+export const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID?.trim() || DEFAULT_GTM_ID;
 
 export type AnalyticsEventParams = Record<string, string | number | boolean | undefined>;
 
