@@ -35,7 +35,7 @@ export const posts: Post[] = [
       "Homestead District exists to help you make the most of that structure. Training, mentorship, and clear expectations are there so the brand advantage becomes a real book of business, not just a familiar logo.",
       "## Questions Worth Asking Before You Start",
       "Ask how long training lasts. Ask how marketing and leads work in your market. Ask what support looks like after launch day, not only before it. The right questions early save months of frustration later.",
-      "If you are serious about starting a business and want ownership with a foundation behind it, start with a conversation. Bring your goals, your timeline, and the concerns you would rather not ignore. Clarity beats guesswork every time.",
+      "If you are serious about starting a business and want ownership with a foundation behind it, start with a conversation. Bring your goals, your timeline, and the concerns you would rather not ignore. Clarity beats guesswork every time. Review the [ownership opportunity](/opportunity), skim our [FAQ](/faq), or [apply to the district](/contact) when you are ready.",
     ],
   },
   {
@@ -62,7 +62,7 @@ export const posts: Post[] = [
       "This is not soft selling. It is disciplined selling. You are matching a real need to a real solution, then making the next step easy to understand.",
       "## Make It a Habit, Not a Script",
       "In our district, we practice discovery until it feels natural. That skill compounds across every appointment, every follow-up, and every annual review. Agents who grow into owners usually get excellent at this long before they hang their own sign.",
-      "If you want to get better at insurance sales, start by getting better at asking. The pitch will take care of itself once you understand what the person across the table is trying to protect.",
+      "If you want to get better at insurance sales, start by getting better at asking. The pitch will take care of itself once you understand what the person across the table is trying to protect. See how [Homestead District training](/opportunity) works, or [talk with Garach](/contact) about whether ownership fits you.",
     ],
   },
   {
@@ -90,7 +90,7 @@ export const posts: Post[] = [
       "## Lead the Relationship, Especially in the First 90 Days",
       "Check in often. Celebrate progress. Correct issues early, before small friction becomes a bigger problem. Your first hire learns how leadership works in your agency by watching you.",
       "Managing a team is part of ownership, not an optional extra. Homestead District coaching includes these conversations because growing an agency means growing the people who help you carry it.",
-      "If you are preparing for ownership and wondering when that first hire should happen, bring the question into your next conversation with us. Timing is personal, but the principles travel well.",
+      "If you are preparing for ownership and wondering when that first hire should happen, bring the question into your next conversation with us. Timing is personal, but the principles travel well. Read more on the [opportunity page](/opportunity), check [agent testimonials](/testimonials), or [start the conversation](/contact).",
     ],
   },
 ];

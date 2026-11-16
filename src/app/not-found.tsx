@@ -2,10 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHero } from "@/components/PageHero";
 import { Button } from "@/components/ui";
+import { metaCopy } from "@/lib/meta-copy";
 import { posts } from "@/lib/posts";
 
 export const metadata: Metadata = {
-  title: "Page Not Found",
+  title: metaCopy.notFound.title,
+  description: metaCopy.notFound.description,
+  robots: { index: false, follow: true },
 };
 
 const groups = [

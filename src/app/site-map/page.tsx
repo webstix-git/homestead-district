@@ -1,13 +1,17 @@
 import type { Metadata } from "next";
+import { metaCopy } from "@/lib/meta-copy";
+import { pageMeta } from "@/lib/seo";
 import Link from "next/link";
 import { BackHome } from "@/components/BackHome";
 import { PageHero } from "@/components/PageHero";
 import { posts } from "@/lib/posts";
 
-export const metadata: Metadata = {
-  title: "Site Map",
-  description: "Every page on the Homestead District website in one place.",
-};
+export const metadata: Metadata = pageMeta({
+  title: metaCopy.siteMap.title,
+  description: metaCopy.siteMap.description,
+  path: '/site-map',
+  image: '/images/bg-legal-v2.jpg',
+});
 
 const groups = [
   {
@@ -55,6 +59,7 @@ export default function SiteMapPage() {
     <>
       <PageHero
         image="/images/bg-legal-v2.jpg"
+        imageAlt="Homestead District website site map"
         eyebrow="Site Map"
         title="Every page on our site in one place."
         description="Find your way around Homestead District."

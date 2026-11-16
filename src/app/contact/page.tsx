@@ -5,11 +5,15 @@ import { ContactForm } from "@/components/ContactForm";
 import { PageHero } from "@/components/PageHero";
 import { Eyebrow } from "@/components/ui";
 import { site } from "@/lib/site";
+import { metaCopy } from "@/lib/meta-copy";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Contact & Apply",
-  description: `Apply to own a Farmers Insurance agency. Call ${site.phone}, email ${site.email}, or send a few details and Garach Smith will contact you.`,
-};
+export const metadata: Metadata = pageMeta({
+  title: metaCopy.contact.title,
+  description: metaCopy.contact.description,
+  path: '/contact',
+  image: '/images/bg-contact-v2.jpg',
+});
 
 const details: {
   icon: LucideIcon;
@@ -41,6 +45,7 @@ export default function ContactPage() {
     <>
       <PageHero
         image="/images/bg-contact-v2.jpg"
+        imageAlt="Contact Homestead District to apply for Farmers Insurance agency ownership"
         eyebrow="Contact"
         title="Apply to Own a Farmers Agency."
         description="Send us a few details and Garach Smith will contact you to set up a time to talk. Not ready to apply yet? Call the office and ask anything."

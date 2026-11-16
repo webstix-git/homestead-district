@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { metaCopy } from "@/lib/meta-copy";
+import { pageMeta } from "@/lib/seo";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
@@ -6,23 +8,40 @@ import { CtaBanner } from "@/components/CtaBanner";
 import { PageHero } from "@/components/PageHero";
 import { posts } from "@/lib/posts";
 
-export const metadata: Metadata = {
-  title: "Blog & Resources",
-  description:
-    "Practical articles on starting a business, insurance sales, and managing a team for people considering agency ownership.",
-};
+export const metadata: Metadata = pageMeta({
+  title: metaCopy.blog.title,
+  description: metaCopy.blog.description,
+  path: '/blog',
+  image: '/images/bg-blog-v2.jpg',
+});
 
 export default function BlogPage() {
   return (
     <>
       <PageHero
         image="/images/bg-blog-v2.jpg"
+        imageAlt="Business resources and articles for insurance agency ownership"
         eyebrow="Blog & Resources"
         title="Practical reading for people considering agency ownership."
       />
 
       <section className="section-y">
         <div className="container-page">
+          <p className="mb-10 max-w-[720px] leading-[1.7] text-ink-muted">
+            Practical guides for people considering ownership. When you are ready for next steps, review the{" "}
+            <Link href="/opportunity" className="font-semibold text-ember-600 underline underline-offset-4 hover:text-navy-900">
+              ownership opportunity
+            </Link>
+            , browse the{" "}
+            <Link href="/faq" className="font-semibold text-ember-600 underline underline-offset-4 hover:text-navy-900">
+              FAQ
+            </Link>
+            , or{" "}
+            <Link href="/contact" className="font-semibold text-ember-600 underline underline-offset-4 hover:text-navy-900">
+              apply to the district
+            </Link>
+            .
+          </p>
           <ul className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {posts.map((post) => (
               <li key={post.slug} className="flex">

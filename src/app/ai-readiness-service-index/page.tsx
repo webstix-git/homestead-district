@@ -5,11 +5,15 @@ import { PageHero } from "@/components/PageHero";
 import { PhoneLink } from "@/components/ui";
 import { pathways, steps } from "@/lib/content";
 import { site } from "@/lib/site";
+import { metaCopy } from "@/lib/meta-copy";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "AI Readiness Service Index",
-  description: `A plain index of ${site.name}: who we are, what we do, where we work, and how to reach us.`,
-};
+export const metadata: Metadata = pageMeta({
+  title: metaCopy.aiReadiness.title,
+  description: metaCopy.aiReadiness.description,
+  path: '/ai-readiness-service-index',
+  image: '/images/bg-legal-v2.jpg',
+});
 
 const linkClass = "font-semibold text-ember-600 underline underline-offset-4 hover:text-navy-900";
 const pageLinkClass = "text-navy-900 underline decoration-ember-500 underline-offset-4 hover:text-ember-600";
@@ -30,6 +34,7 @@ export default function AiReadinessPage() {
     <>
       <PageHero
         image="/images/bg-legal-v2.jpg"
+        imageAlt="Homestead District AI readiness service index"
         eyebrow="AI Readiness Service Index"
         title="Who we are and what we do."
         description="A plain index of the district, the opportunity, and how to reach us, in one place."

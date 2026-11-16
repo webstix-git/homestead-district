@@ -12,6 +12,8 @@ type PageHeroProps = {
   /** Optional second supporting line under the description. */
   description?: ReactNode;
   image?: string;
+  /** Accessible description for the hero background image. */
+  imageAlt?: string;
   /** Extra classes for the background Image (e.g. object-position). */
   imageClassName?: string;
   children?: ReactNode;
@@ -73,6 +75,7 @@ export function PageHero({
   title,
   description,
   image,
+  imageAlt = "",
   imageClassName,
   children,
   aside,
@@ -96,7 +99,7 @@ export function PageHero({
           <>
             <Image
               src={image}
-              alt=""
+              alt={imageAlt}
               fill
               priority
               sizes="100vw"

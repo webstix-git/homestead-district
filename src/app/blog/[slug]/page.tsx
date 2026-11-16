@@ -4,14 +4,34 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Phone } from "lucide-react";
 import { CtaBanner } from "@/components/CtaBanner";
+import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
 import { PhoneLink } from "@/components/ui";
+import { blogMetaDescriptions, blogMetaTitles } from "@/lib/meta-copy";
 import { getPost, posts } from "@/lib/posts";
+import { blogPostingSchema, breadcrumbSchema } from "@/lib/schema";
+import { pageMeta } from "@/lib/seo";
 import { site } from "@/lib/site";
 
 type Props = {
   params: Promise<{ slug: string }>;
 };
+
+const linkClass = "font-semibold text-ember-600 underline underline-offset-4 hover:text-navy-900";
+
+function renderLinkedText(text: string) {
+  const parts = text.split(/(\[[^\]]+\]\([^)]+\))/g);
+  return parts.map((part, index) => {
+    const match = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+    if (!match) return <span key={`${index}-${part.slice(0, 12)}`}>{part}</span>;
+    const [, label, href] = match;
+    return (
+      <Link key={`${href}-${label}`} href={href} className={linkClass}>
+        {label}
+      </Link>
+    );
+  });
+}
 
 export function generateStaticParams() {
   return posts.map((post) => ({ slug: post.slug }));
@@ -21,7 +41,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const post = getPost(slug);
   if (!post) return { title: "Blog" };
-  return { title: post.title, description: post.excerpt };
+  return pageMeta({
+    title: blogMetaTitles[post.slug] ?? post.title.slice(0, 38),
+    description: blogMetaDescriptions[post.slug] ?? post.excerpt.slice(0, 160),
+    path: `/blog/${post.slug}`,
+    image: post.img,
+  });
 }
 
 export default async function BlogPostPage({ params }: Props) {
@@ -33,6 +58,16 @@ export default async function BlogPostPage({ params }: Props) {
 
   return (
     <>
+      <JsonLd
+        data={[
+          blogPostingSchema(post),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Blog", path: "/blog" },
+            { name: post.title, path: `/blog/${post.slug}` },
+          ]),
+        ]}
+      />
       <PageHero
         eyebrow={post.title}
         title={post.excerpt}
@@ -76,7 +111,11 @@ export default async function BlogPostPage({ params }: Props) {
                 if (paragraph.startsWith("- ")) {
                   return null;
                 }
-                return <p key={`${index}-${paragraph.slice(0, 24)}`}>{paragraph}</p>;
+                return (
+                  <p key={`${index}-${paragraph.slice(0, 24)}`}>
+                    {renderLinkedText(paragraph)}
+                  </p>
+                );
               })}
             </div>
 
@@ -131,7 +170,7 @@ export default async function BlogPostPage({ params }: Props) {
                   <li key={item.slug}>
                     <Link href={`/blog/${item.slug}`} className="group flex items-center gap-3">
                       <span className="relative size-16 shrink-0 overflow-hidden bg-navy-900">
-                        <Image src={item.img} alt="" fill sizes="64px" className="object-cover" />
+                        <Image src={item.img} alt={item.title} fill sizes="64px" className="object-cover" />
                       </span>
                       <span className="font-heading text-[15px] leading-snug font-semibold text-navy-900 group-hover:text-ember-600">
                         {item.title}

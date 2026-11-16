@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import { AwardsMarquee } from "@/components/home/AwardsMarquee";
 import { PathSteps } from "@/components/home/PathSteps";
@@ -14,6 +15,16 @@ import {
   values,
   whoFor,
 } from "@/lib/content";
+import { metaCopy } from "@/lib/meta-copy";
+import { pageMeta } from "@/lib/seo";
+
+export const metadata: Metadata = pageMeta({
+  title: metaCopy.home.title,
+  absoluteTitle: metaCopy.home.absoluteTitle,
+  description: metaCopy.home.description,
+  path: '/',
+  image: '/images/garach-hero.jpg',
+});
 
 function BulletList({ title, items }: { title: string; items: string[] }) {
   return (
@@ -285,7 +296,13 @@ export default function HomePage() {
 
       {/* Path to ownership (no watermark) */}
       <section id="path" className="section-y relative overflow-hidden bg-navy-900 text-white">
-        <Image src="/images/path-handshake-v3.jpg" alt="" fill sizes="100vw" className="object-cover object-center" />
+        <Image
+          src="/images/path-handshake-v3.jpg"
+          alt="Handshake representing partnership on the path to agency ownership"
+          fill
+          sizes="100vw"
+          className="object-cover object-center"
+        />
         <div className="absolute inset-0 z-[1] bg-[linear-gradient(100deg,rgba(17,25,41,0.97)_0%,rgba(17,25,41,0.9)_50%,rgba(17,25,41,0.78)_100%)]" />
         <div className="container-page relative z-[2]">
           <Eyebrow tone="light">The Path to Ownership</Eyebrow>
@@ -362,7 +379,13 @@ export default function HomePage() {
 
       {/* Testimonials */}
       <section id="testimonials" className="section-y relative overflow-hidden bg-navy-900 text-white">
-        <Image src="/images/bg-home-testimonials-v3.jpg" alt="" fill sizes="100vw" className="object-cover object-center" />
+        <Image
+          src="/images/bg-home-testimonials-v3.jpg"
+          alt="Agency owners and mentors collaborating in a professional office"
+          fill
+          sizes="100vw"
+          className="object-cover object-center"
+        />
         <div className="absolute inset-0 z-[1] bg-[linear-gradient(180deg,rgba(17,25,41,0.9)_0%,rgba(17,25,41,0.97)_100%)]" />
         <div
           aria-hidden="true"
@@ -405,7 +428,13 @@ export default function HomePage() {
               </li>
             ))}
           </ul>
-          <div className="mt-12 flex justify-center">
+          <div className="mt-12 flex flex-wrap justify-center gap-3">
+            <Button href="/faq" variant="outline" arrow>
+              Read the FAQ
+            </Button>
+            <Button href="/blog" variant="outline" arrow>
+              Browse the Blog
+            </Button>
             <Button href="/testimonials" variant="outline" arrow>
               Read More Agent Testimonials
             </Button>

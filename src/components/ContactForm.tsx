@@ -4,6 +4,7 @@ import { useState, type FormEvent } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { ArrowIcon, buttonClass } from "@/components/ui";
+import { trackContactFormSubmit } from "@/lib/analytics";
 
 const fieldClass =
   "mt-2 block w-full rounded-[2px] border border-cream-300 bg-cream-200 px-4 py-3.5 text-base font-normal text-navy-900 outline-none transition-colors focus:border-ember-500 focus:bg-white";
@@ -27,6 +28,7 @@ export function ContactForm() {
     }
 
     setError("");
+    trackContactFormSubmit();
     router.push("/thank-you");
   };
 

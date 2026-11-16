@@ -5,11 +5,15 @@ import { Breadcrumb, PageHero, Watermark } from "@/components/PageHero";
 import { Accent, Button, Eyebrow, SectionHead } from "@/components/ui";
 import { agentGets, opportunityStats, pathways, steps, testimonials } from "@/lib/content";
 
-export const metadata: Metadata = {
-  title: "Agency Ownership Opportunity",
-  description:
-    "A structured pathway for motivated professionals to become Farmers Insurance agency owners in Springfield and Southwest Missouri, backed by proven mentorship and systems.",
-};
+import { metaCopy } from "@/lib/meta-copy";
+import { pageMeta } from "@/lib/seo";
+
+export const metadata: Metadata = pageMeta({
+  title: metaCopy.opportunity.title,
+  description: metaCopy.opportunity.description,
+  path: '/opportunity',
+  image: '/images/bg-opportunity-v3.jpg',
+});
 
 const robert = testimonials[1];
 
@@ -18,6 +22,7 @@ export default function OpportunityPage() {
     <>
       <PageHero
         image="/images/bg-opportunity-v3.jpg"
+        imageAlt="Farmers Insurance agency ownership opportunity with Homestead District"
         eyebrow="Agency Ownership Opportunity"
         title={
           <>
@@ -151,7 +156,13 @@ export default function OpportunityPage() {
 
       {/* Quote */}
       <section className="relative flex min-h-[clamp(420px,46vw,560px)] items-center overflow-hidden bg-navy-900 text-white">
-        <Image src="/images/opp-quote-v3.jpg" alt="" fill sizes="100vw" className="object-cover object-center" />
+        <Image
+          src="/images/opp-quote-v3.jpg"
+          alt="Professional setting for Homestead District agency ownership mentoring"
+          fill
+          sizes="100vw"
+          className="object-cover object-center"
+        />
         <div className="absolute inset-0 z-[1] bg-[linear-gradient(90deg,rgba(17,25,41,0.96)_0%,rgba(17,25,41,0.85)_55%,rgba(17,25,41,0.55)_100%)]" />
         <figure className="container-page relative z-[2] py-[clamp(64px,8vw,104px)]">
           <div aria-hidden="true" className="h-11 font-heading text-[96px] leading-[0.6] font-bold text-ember-500">
@@ -294,6 +305,7 @@ export default function OpportunityPage() {
                     <Image
                       src={item.icon}
                       alt=""
+                      aria-hidden="true"
                       fill
                       sizes="48px"
                       className="object-contain object-left"

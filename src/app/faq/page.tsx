@@ -3,15 +3,20 @@ import type { ReactNode } from "react";
 import Link from "next/link";
 import { CtaBanner } from "@/components/CtaBanner";
 import { FaqAccordion } from "@/components/FaqAccordion";
+import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
 import { Button, PhoneLink } from "@/components/ui";
+import { faqPageSchema } from "@/lib/schema";
+import { metaCopy } from "@/lib/meta-copy";
+import { pageMeta } from "@/lib/seo";
 import { site } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "FAQ",
-  description:
-    "Answers about starting, scaling, and owning an insurance agency with Homestead District mentorship and training.",
-};
+export const metadata: Metadata = pageMeta({
+  title: metaCopy.faq.title,
+  description: metaCopy.faq.description,
+  path: '/faq',
+  image: '/images/bg-faq-v3.jpg',
+});
 
 const linkClass = "font-semibold text-ember-600 underline underline-offset-4 hover:text-navy-900";
 
@@ -107,7 +112,13 @@ const faqItems: { q: string; a: ReactNode }[] = [
 export default function FaqPage() {
   return (
     <>
-      <PageHero image="/images/bg-faq-v3.jpg" eyebrow="FAQ" title="Frequently Asked Questions" />
+      <JsonLd data={faqPageSchema()} />
+      <PageHero
+        image="/images/bg-faq-v3.jpg"
+        imageAlt="Frequently asked questions about owning a Farmers Insurance agency"
+        eyebrow="FAQ"
+        title="Frequently Asked Questions"
+      />
 
       <section className="section-y-sm">
         <div className="container-page max-w-[920px]">

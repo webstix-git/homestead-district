@@ -1,6 +1,8 @@
 {
-  "name": "MyWebSite",
-  "short_name": "MySite",
+  "name": "The Homestead District",
+  "short_name": "Homestead District",
+  "description": "Own a Farmers Insurance agency in Springfield and Southwest Missouri with Homestead District mentorship.",
+  "start_url": "/",
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",
@@ -15,7 +17,7 @@
       "purpose": "maskable"
     }
   ],
-  "theme_color": "#ffffff",
-  "background_color": "#ffffff",
+  "theme_color": "#111929",
+  "background_color": "#111929",
   "display": "standalone"
 }

@@ -5,18 +5,22 @@ import { PageHero, Watermark } from "@/components/PageHero";
 import { Accent, Button, Eyebrow } from "@/components/ui";
 import { aboutStats, frameworkPoints, regions } from "@/lib/content";
 import { site } from "@/lib/site";
+import { metaCopy } from "@/lib/meta-copy";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "About the District",
-  description:
-    "For 16 years, Homestead District has helped people in Springfield and Southwest Missouri open and grow Farmers Insurance agencies, with mentorship, training, and honest support.",
-};
+export const metadata: Metadata = pageMeta({
+  title: metaCopy.about.title,
+  description: metaCopy.about.description,
+  path: '/about',
+  image: '/images/bg-about-v2.jpg',
+});
 
 export default function AboutPage() {
   return (
     <>
       <PageHero
         image="/images/bg-about-v2.jpg"
+        imageAlt="Homestead District office and agency ownership setting in Springfield, Missouri"
         eyebrow="About the District"
         title="Sixteen years of helping people open and grow Farmers Insurance agencies."
       />
@@ -115,6 +119,7 @@ export default function AboutPage() {
                     <Image
                       src={point.icon}
                       alt=""
+                      aria-hidden="true"
                       fill
                       sizes="40px"
                       className="object-contain"
@@ -159,6 +164,14 @@ export default function AboutPage() {
                 renewal-based income and professional trust. You will have full support from mentors and a team dedicated to
                 your growth. If you want a job that becomes a legacy, we are ready to guide you every step of the way.
               </p>
+            </div>
+            <div className="mt-8 flex flex-wrap gap-4">
+              <Button href="/opportunity" arrow>
+                See the Opportunity
+              </Button>
+              <Button href="/contact" variant="outline">
+                Apply to the District
+              </Button>
             </div>
           </div>
         </div>

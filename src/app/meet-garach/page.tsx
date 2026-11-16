@@ -1,21 +1,25 @@
 import type { Metadata } from "next";
+import { metaCopy } from "@/lib/meta-copy";
+import { pageMeta } from "@/lib/seo";
 import Image from "next/image";
 import { CtaBanner } from "@/components/CtaBanner";
 import { PageHero, Watermark } from "@/components/PageHero";
-import { Accent, Eyebrow } from "@/components/ui";
+import { Accent, Button, Eyebrow } from "@/components/ui";
 import { approach, values } from "@/lib/content";
 
-export const metadata: Metadata = {
-  title: "Meet Garach",
-  description:
-    "Garach Smith is the District Manager of The Homestead District. He built, grew, and sold his own Farmers Insurance agency, and now mentors new agency owners in Springfield.",
-};
+export const metadata: Metadata = pageMeta({
+  title: metaCopy.meetGarach.title,
+  description: metaCopy.meetGarach.description,
+  path: '/meet-garach',
+  image: '/images/bg-garach-v2.jpg',
+});
 
 export default function MeetGarachPage() {
   return (
     <>
       <PageHero
         image="/images/bg-garach-v2.jpg"
+        imageAlt="Garach Smith, District Manager of Homestead District in Springfield"
         imageClassName="object-[center_62%]"
         eyebrow="Meet Garach"
         title="District Manager, mentor, and former Farmers agency owner — leading Homestead District from Springfield."
@@ -52,6 +56,14 @@ export default function MeetGarachPage() {
               district to provide a structured, mentorship-led pathway for entrepreneurs ready to lead. His story is one
               of discipline, accountability, and a commitment to building durable businesses that stand the test of time.
             </p>
+            <div className="mt-8 flex flex-wrap gap-4">
+              <Button href="/opportunity" arrow>
+                Explore Ownership Paths
+              </Button>
+              <Button href="/contact" variant="outline">
+                Talk With Garach
+              </Button>
+            </div>
           </div>
         </div>
       </section>

@@ -3,12 +3,15 @@ import { BackHome } from "@/components/BackHome";
 import { PageHero } from "@/components/PageHero";
 import { PhoneLink } from "@/components/ui";
 import { site } from "@/lib/site";
+import { metaCopy } from "@/lib/meta-copy";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Privacy Policy",
-  description:
-    "How The Homestead District in Springfield, Missouri collects, uses, discloses, and safeguards your information.",
-};
+export const metadata: Metadata = pageMeta({
+  title: metaCopy.privacyPolicy.title,
+  description: metaCopy.privacyPolicy.description,
+  path: '/privacy-policy',
+  image: '/images/bg-legal-v2.jpg',
+});
 
 type Block = { label?: string; text: string };
 type Section = {
@@ -103,6 +106,7 @@ export default function PrivacyPolicyPage() {
     <>
       <PageHero
         image="/images/bg-legal-v2.jpg"
+        imageAlt="Homestead District privacy policy"
         eyebrow="Privacy Policy"
         title="Last Updated: August 19, 2026"
       />

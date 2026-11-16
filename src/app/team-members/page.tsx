@@ -1,13 +1,16 @@
 import type { Metadata } from "next";
+import { metaCopy } from "@/lib/meta-copy";
+import { pageMeta } from "@/lib/seo";
 import Image from "next/image";
 import { CtaBanner } from "@/components/CtaBanner";
 import { PageHero } from "@/components/PageHero";
 
-export const metadata: Metadata = {
-  title: "Team Members",
-  description:
-    "Meet the Homestead District team led by District Manager Garach Smith in Springfield, Missouri.",
-};
+export const metadata: Metadata = pageMeta({
+  title: metaCopy.teamMembers.title,
+  description: metaCopy.teamMembers.description,
+  path: '/team-members',
+  image: '/images/bg-team-v6.jpg',
+});
 
 const team = [
   {
@@ -42,6 +45,7 @@ export default function TeamMembersPage() {
     <>
       <PageHero
         image="/images/bg-team-v6.jpg"
+        imageAlt="Homestead District team members in Springfield, Missouri"
         eyebrow="Team Members"
         title="Meet the Team"
       />

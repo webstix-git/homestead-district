@@ -1,20 +1,24 @@
 import type { Metadata } from "next";
+import { metaCopy } from "@/lib/meta-copy";
+import { pageMeta } from "@/lib/seo";
 import Image from "next/image";
 import { CtaBanner } from "@/components/CtaBanner";
 import { PageHero } from "@/components/PageHero";
 import { testimonials } from "@/lib/content";
 
-export const metadata: Metadata = {
-  title: "Agent Testimonials",
-  description:
-    "Hear from Missouri Farmers Insurance agency owners about the training, support, and opportunity they found through their district office.",
-};
+export const metadata: Metadata = pageMeta({
+  title: metaCopy.testimonials.title,
+  description: metaCopy.testimonials.description,
+  path: '/testimonials',
+  image: '/images/bg-testimonials-v3.jpg',
+});
 
 export default function TestimonialsPage() {
   return (
     <>
       <PageHero
         image="/images/bg-testimonials-v3.jpg"
+        imageAlt="Missouri Farmers Insurance agency owners sharing their experience"
         eyebrow="Agent Testimonials"
         title="In their own words, from Missouri agency owners."
       />

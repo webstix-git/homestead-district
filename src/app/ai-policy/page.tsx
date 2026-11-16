@@ -4,11 +4,15 @@ import { BackHome } from "@/components/BackHome";
 import { PageHero } from "@/components/PageHero";
 import { PhoneLink } from "@/components/ui";
 import { site } from "@/lib/site";
+import { metaCopy } from "@/lib/meta-copy";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "AI Policy",
-  description: `How ${site.name} uses, and does not use, automated tools in our agency recruiting work and on this website.`,
-};
+export const metadata: Metadata = pageMeta({
+  title: metaCopy.aiPolicy.title,
+  description: metaCopy.aiPolicy.description,
+  path: '/ai-policy',
+  image: '/images/bg-legal-v2.jpg',
+});
 
 const linkClass = "font-semibold text-ember-600 underline underline-offset-4 hover:text-navy-900";
 
@@ -17,6 +21,7 @@ export default function AiPolicyPage() {
     <>
       <PageHero
         image="/images/bg-legal-v2.jpg"
+        imageAlt="Homestead District AI policy"
         eyebrow="AI Policy"
         title="People make the decisions here."
         description="Software can help us write. It does not decide who becomes an agency owner or what happens to your information."
