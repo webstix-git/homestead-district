@@ -8,6 +8,31 @@ const nextConfig: NextConfig = {
     imageSizes: [16, 32, 48, 64, 96, 128, 256],
     minimumCacheTTL: 60 * 60 * 24 * 30,
   },
+  async redirects() {
+    // Legacy Wix paths → Next.js routes (same domain).
+    return [
+      {
+        source: "/home-1",
+        destination: "/about",
+        permanent: true,
+      },
+      {
+        source: "/meet-garach-1",
+        destination: "/meet-garach",
+        permanent: true,
+      },
+      {
+        source: "/agent-testimonials",
+        destination: "/testimonials",
+        permanent: true,
+      },
+      {
+        source: "/pages-sitemap.xml",
+        destination: "/sitemap.xml",
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {
