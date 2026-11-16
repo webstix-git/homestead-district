@@ -37,12 +37,13 @@ export default function MeetGarachPage() {
             <div className="absolute inset-y-0 right-0 left-[12%] border-t-[3px] border-ember-500 bg-navy-800" />
             <div className="relative ml-[12%] aspect-[4/5] w-[88%] overflow-hidden">
               <Image
-                src="/images/garach-hero.jpg"
+                src="/images/garach-hero-v2.jpg"
                 alt="Garach Smith, District Manager"
                 fill
                 quality={100}
+                unoptimized
                 sizes="(min-width: 1024px) 400px, 80vw"
-                className="object-cover object-[center_15%]"
+                className="object-cover object-[center_15%] [image-rendering:high-quality]"
               />
             </div>
           </div>

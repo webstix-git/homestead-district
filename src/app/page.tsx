@@ -23,7 +23,7 @@ export const metadata: Metadata = pageMeta({
   absoluteTitle: metaCopy.home.absoluteTitle,
   description: metaCopy.home.description,
   path: '/',
-  image: '/images/garach-hero.jpg',
+  image: '/images/garach-hero-v2.jpg',
 });
 
 function BulletList({ title, items }: { title: string; items: string[] }) {
@@ -86,13 +86,14 @@ export default function HomePage() {
             <div className="absolute inset-y-0 right-0 left-[8%] border-t-[3px] border-ember-500 bg-gradient-to-b from-navy-800 to-navy-850 sm:left-[12%]" />
             <div className="relative ml-[8%] aspect-[4/5] max-h-[560px] w-[92%] overflow-hidden sm:ml-[12%] sm:max-h-[640px] sm:w-[88%]">
               <Image
-                src="/images/garach-hero.jpg"
+                src="/images/garach-hero-v2.jpg"
                 alt="Garach Smith, District Manager at Homestead District"
                 fill
                 priority
                 quality={100}
+                unoptimized
                 sizes="(min-width: 1024px) 560px, 90vw"
-                className="object-cover object-[center_15%]"
+                className="object-cover object-[center_15%] [image-rendering:high-quality]"
               />
             </div>
             <div className="absolute bottom-6 left-0 max-w-[min(290px,calc(100%-1rem))] bg-cream-100 px-5 py-4 text-navy-900 shadow-[0_24px_48px_rgba(0,0,0,0.35)] sm:bottom-10 sm:px-[26px] sm:py-[22px]">
@@ -324,12 +325,13 @@ export default function HomePage() {
             <div className="pointer-events-none absolute top-4 right-0 bottom-0 left-4 border-[3px] border-ember-500 sm:top-6 sm:left-6" />
             <div className="relative aspect-[4/5] w-full max-w-full overflow-hidden">
               <Image
-                src="/images/garach-hero.jpg"
+                src="/images/garach-hero-v2.jpg"
                 alt="Garach Smith, District Manager"
                 fill
                 quality={100}
+                unoptimized
                 sizes="(min-width: 1024px) 560px, 90vw"
-                className="object-cover object-[center_20%]"
+                className="object-cover object-[center_20%] [image-rendering:high-quality]"
               />
             </div>
           </div>
