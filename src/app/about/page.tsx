@@ -218,7 +218,7 @@ export default function AboutPage() {
             <div className="pointer-events-none absolute top-4 right-0 bottom-0 left-4 border-[3px] border-ember-500 sm:top-6 sm:left-6" />
             <div className="relative aspect-[4/5] w-full overflow-hidden">
               <Image
-                src="/images/garach-hero-v3.png"
+                src="/images/garach-hero-v4.jpg"
                 alt="Garach Smith, District Manager"
                 fill
                 unoptimized

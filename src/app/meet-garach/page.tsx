@@ -37,7 +37,7 @@ export default function MeetGarachPage() {
             <div className="absolute inset-y-0 right-0 left-[12%] border-t-[3px] border-ember-500 bg-navy-800" />
             <div className="relative ml-[12%] aspect-[4/5] w-[88%] overflow-hidden">
               <Image
-                src="/images/garach-hero-v3.png"
+                src="/images/garach-hero-v4.jpg"
                 alt="Garach Smith, District Manager"
                 fill
                 unoptimized

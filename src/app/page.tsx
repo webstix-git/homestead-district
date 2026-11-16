@@ -23,7 +23,7 @@ export const metadata: Metadata = pageMeta({
   absoluteTitle: metaCopy.home.absoluteTitle,
   description: metaCopy.home.description,
   path: '/',
-  image: '/images/garach-hero-v3.jpg',
+  image: '/images/garach-hero-v4.jpg',
 });
 
 function BulletList({ title, items }: { title: string; items: string[] }) {
@@ -85,15 +85,16 @@ export default function HomePage() {
 
           <div className="relative z-[2] min-w-0 self-stretch">
             <div className="absolute inset-y-0 right-0 left-[8%] border-t-[3px] border-ember-500 bg-navy-800 sm:left-[12%]" />
-            <div className="relative ml-[8%] aspect-[4/5] max-h-[560px] w-[92%] overflow-hidden bg-navy-800 sm:ml-[12%] sm:max-h-[640px] sm:w-[88%]">
+            <div className="relative ml-[8%] w-[min(92%,420px)] overflow-hidden bg-navy-800 sm:ml-[12%] sm:w-[min(88%,460px)] lg:w-[min(88%,500px)]">
               <Image
-                src="/images/garach-hero-v3.png"
+                src="/images/garach-hero-v4.jpg"
                 alt="Garach Smith, District Manager at Homestead District"
-                fill
+                width={1462}
+                height={2048}
                 priority
                 unoptimized
-                sizes="(min-width: 1024px) 560px, 90vw"
-                className="object-cover object-[center_15%]"
+                sizes="(min-width: 1024px) 500px, (min-width: 640px) 460px, 420px"
+                className="h-auto w-full object-cover object-top"
               />
             </div>
             <div className="absolute bottom-6 left-0 max-w-[min(290px,calc(100%-1rem))] bg-cream-100 px-5 py-4 text-navy-900 shadow-[0_24px_48px_rgba(0,0,0,0.35)] sm:bottom-10 sm:px-[26px] sm:py-[22px]">
@@ -325,7 +326,7 @@ export default function HomePage() {
             <div className="pointer-events-none absolute top-4 right-0 bottom-0 left-4 border-[3px] border-ember-500 sm:top-6 sm:left-6" />
             <div className="relative aspect-[4/5] w-full max-w-full overflow-hidden">
               <Image
-                src="/images/garach-hero-v3.png"
+                src="/images/garach-hero-v4.jpg"
                 alt="Garach Smith, District Manager"
                 fill
                 unoptimized
