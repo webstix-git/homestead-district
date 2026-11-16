@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { turnstileKey } from "@/lib/turnstile";
+import { getTurnstileSiteKey } from "@/lib/turnstile";
 
 const SCRIPT_ID = "cf-turnstile-script";
 const SCRIPT_SRC = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
@@ -99,7 +99,7 @@ export function Turnstile({ onToken }: TurnstileProps) {
   const hostRef = useRef<HTMLDivElement>(null);
   const widgetId = useRef<string | number | null>(null);
   const onTokenRef = useRef(onToken);
-  const siteKey = turnstileKey(process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY);
+  const siteKey = getTurnstileSiteKey();
 
   onTokenRef.current = onToken;
 
