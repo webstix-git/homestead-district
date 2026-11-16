@@ -26,18 +26,6 @@ const team = [
     img: "/images/team-ronda.jpg",
     object: "object-center",
   },
-  {
-    name: "Shelby Brummett",
-    role: "District Recruitment & Operations Coordinator",
-    img: "/images/team-shelby.jpg",
-    object: "object-center",
-  },
-  {
-    name: "Darius Hanson",
-    role: "Sales Analyst",
-    img: "/images/team-darius.png",
-    object: "object-center",
-  },
 ] as const;
 
 export default function TeamMembersPage() {
