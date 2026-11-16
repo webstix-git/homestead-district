@@ -13,6 +13,9 @@ const fieldClass =
 const labelClass = "block font-heading text-xs font-semibold tracking-[0.12em] uppercase";
 
 const TURNSTILE_ENABLED = hasTurnstileSiteKey();
+const FORM_ENDPOINT =
+  process.env.NEXT_PUBLIC_CONTACT_FORM_ENDPOINT?.trim() ||
+  "https://ywwxvriolxwuqcwjaluh.supabase.co/functions/v1/form-submit/059b0f3f-f905-4282-a89a-4ab70255c95c";
 
 export function ContactForm() {
   const router = useRouter();
@@ -26,7 +29,17 @@ export function ContactForm() {
     const data = new FormData(form);
     const required = ["fullName", "phone", "email", "background", "experience", "location"] as const;
 
-    const missing = required.some((name) => !String(data.get(name) ?? "").trim());
+    const values = {
+      fullName: String(data.get("fullName") ?? "").trim(),
+      phone: String(data.get("phone") ?? "").trim(),
+      email: String(data.get("email") ?? "").trim(),
+      background: String(data.get("background") ?? "").trim(),
+      experience: String(data.get("experience") ?? "").trim(),
+      location: String(data.get("location") ?? "").trim(),
+      message: String(data.get("message") ?? "").trim(),
+    };
+
+    const missing = required.some((name) => !values[name]);
     if (missing || !form.checkValidity()) {
       setError("Please fill in all required fields marked with an asterisk (*).");
       form.reportValidity();
@@ -39,9 +52,11 @@ export function ContactForm() {
       return;
     }
 
-    if (TURNSTILE_ENABLED) {
-      setSubmitting(true);
-      try {
+    setSubmitting(true);
+    setError("");
+
+    try {
+      if (TURNSTILE_ENABLED) {
         const verify = await fetch("/api/verify-turnstile", {
           method: "POST",
           headers: { "content-type": "application/json" },
@@ -53,16 +68,69 @@ export function ContactForm() {
           setSubmitting(false);
           return;
         }
+      }
+
+      const payload: Record<string, string> = {
+        name: values.fullName,
+        fullName: values.fullName,
+        phone: values.phone,
+        email: values.email,
+        background: values.background,
+        experience: values.experience,
+        location: values.location,
+        message: values.message,
+        "Professional Background": values.background,
+        "Years of Experience": values.experience,
+        source: "contact-page",
+        pageUrl: typeof window !== "undefined" ? window.location.href : "",
+      };
+
+      if (token) {
+        payload.turnstileToken = token;
+        payload["cf-turnstile-response"] = token;
+      }
+
+      const response = await fetch(FORM_ENDPOINT, {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+          accept: "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      let result: {
+        success?: boolean | string;
+        redirect_url?: string;
+        redirect?: string;
+        error?: string;
+        message?: string;
+      } = {};
+      try {
+        result = (await response.json()) as typeof result;
       } catch {
-        setError("Verification unavailable. Please try again.");
-        setSubmitting(false);
+        result = {};
+      }
+
+      if (!response.ok || result.success === false || result.success === "false") {
+        throw new Error(result.error || result.message || "Unable to send your application. Please try again.");
+      }
+
+      trackContactFormSubmit();
+      const next = result.redirect_url || result.redirect || "/thank-you";
+      if (typeof next === "string" && next.startsWith("http")) {
+        window.location.assign(next);
         return;
       }
+      router.push(typeof next === "string" && next.startsWith("/") ? next : "/thank-you");
+    } catch (submitError) {
+      setSubmitting(false);
+      setError(
+        submitError instanceof Error
+          ? submitError.message
+          : "Unable to send your application. Please try again.",
+      );
     }
-
-    setError("");
-    trackContactFormSubmit();
-    router.push("/thank-you");
   };
 
   return (
@@ -128,7 +196,7 @@ export function ContactForm() {
         disabled={submitting}
         className={buttonClass("primary", "lg", "w-full cursor-pointer disabled:cursor-wait disabled:opacity-70")}
       >
-        <span className="leading-none">{submitting ? "Verifying…" : "Send Application"}</span>
+        <span className="leading-none">{submitting ? "Sending…" : "Send Application"}</span>
         {!submitting ? <ArrowIcon /> : null}
       </button>
       <p className="leading-[1.6] text-ink-soft">
