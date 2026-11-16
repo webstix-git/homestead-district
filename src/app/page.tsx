@@ -90,6 +90,7 @@ export default function HomePage() {
                 alt="Garach Smith, District Manager at Homestead District"
                 fill
                 priority
+                quality={100}
                 sizes="(min-width: 1024px) 560px, 90vw"
                 className="object-cover object-[center_15%]"
               />
@@ -326,6 +327,7 @@ export default function HomePage() {
                 src="/images/garach-hero.jpg"
                 alt="Garach Smith, District Manager"
                 fill
+                quality={100}
                 sizes="(min-width: 1024px) 560px, 90vw"
                 className="object-cover object-[center_20%]"
               />

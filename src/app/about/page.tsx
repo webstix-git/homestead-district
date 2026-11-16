@@ -221,6 +221,7 @@ export default function AboutPage() {
                 src="/images/garach-hero.jpg"
                 alt="Garach Smith, District Manager"
                 fill
+                quality={100}
                 sizes="(min-width: 1024px) 460px, 90vw"
                 className="object-cover object-[center_20%]"
               />

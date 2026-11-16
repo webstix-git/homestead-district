@@ -40,6 +40,7 @@ export default function MeetGarachPage() {
                 src="/images/garach-hero.jpg"
                 alt="Garach Smith, District Manager"
                 fill
+                quality={100}
                 sizes="(min-width: 1024px) 400px, 80vw"
                 className="object-cover object-[center_15%]"
               />
