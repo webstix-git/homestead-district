@@ -86,6 +86,14 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={`${manrope.variable} ${montserrat.variable}`}>
+      <head>
+        <script
+          defer
+          data-site="8a7b9ea955a84667"
+          data-endpoint="https://ywwxvriolxwuqcwjaluh.supabase.co/functions/v1/track-event"
+          src="https://midwestfamilyportal.com/track.js"
+        />
+      </head>
       <body className="flex min-h-dvh flex-col">
         <AnalyticsNoscript />
         <a
