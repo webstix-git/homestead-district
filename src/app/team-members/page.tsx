@@ -25,6 +25,7 @@ const team = [
     role: "Director of Agency Development",
     img: "/images/team-ronda.jpg",
     object: "object-center",
+    bio: "Ronda Shehorn serves as Director of Agency Development for our Farmers Insurance Homestead District Office, where she focuses on recruiting top talent and helping insurance professionals reach their full potential. She brings a diverse background in talent acquisition, professional training, and education. Ronda is passionate about developing people, building strong teams, and creating opportunities for professional growth. Her experience in identifying talent, developing skills, and supporting individuals throughout their careers makes her a valuable part of our team's mission to build successful agencies and help our agents thrive.",
   },
 ] as const;
 
